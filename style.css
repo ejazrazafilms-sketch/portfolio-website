@@ -5,8 +5,8 @@
   --accent: #ccff00;
   --text: #e8e8e8;
   --secondary: #a0a0a0;
-  --font-main: 'Outfit', sans-serif;
-  --font-serif: 'Playfair Display', serif;
+  --font-main: Arial, Helvetica, sans-serif;
+  --font-serif: Arial, Helvetica, sans-serif;
 }
 
 * {

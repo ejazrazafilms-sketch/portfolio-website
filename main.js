@@ -97,23 +97,29 @@ document.addEventListener("DOMContentLoaded", () => {
     }, { passive: true });
   }
 
-  // 5. About Slider Indicator Sync
-  const aboutSlider = document.querySelector('.about-slider');
-  const indicators = document.querySelectorAll('.slider-indicator span');
-
-  if (aboutSlider && indicators.length > 0) {
-    aboutSlider.addEventListener('scroll', () => {
-      const scrollIndex = Math.round(aboutSlider.scrollLeft / aboutSlider.clientWidth);
-      
-      indicators.forEach((dot, index) => {
-        if (index === scrollIndex) {
-          dot.classList.add('active');
-        } else {
-          dot.classList.remove('active');
-        }
+  // 5. Slider Indicator Sync
+  const setupSliderSync = (slider, indicatorSpans) => {
+    if (slider && indicatorSpans.length > 0) {
+      slider.addEventListener('scroll', () => {
+        const scrollIndex = Math.round(slider.scrollLeft / slider.clientWidth);
+        indicatorSpans.forEach((dot, index) => {
+          if (index === scrollIndex) {
+            dot.classList.add('active');
+          } else {
+            dot.classList.remove('active');
+          }
+        });
       });
-    });
-  }
+    }
+  };
+
+  const aboutSlider = document.querySelector('.about-slider');
+  const aboutIndicators = document.querySelectorAll('.panel.about .slider-indicator span');
+  setupSliderSync(aboutSlider, aboutIndicators);
+
+  const pressSlider = document.querySelector('.press-grid');
+  const pressIndicators = document.querySelectorAll('.recognition-indicator span');
+  setupSliderSync(pressSlider, pressIndicators);
 
   // 6. BTS Slider Active State (Intersection Observer)
   const btsSlider = document.querySelector('.bts-slider');

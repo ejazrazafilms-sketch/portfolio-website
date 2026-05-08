@@ -43,7 +43,10 @@ document.addEventListener("DOMContentLoaded", () => {
     hoverTargets.forEach(target => {
       target.addEventListener('mouseenter', () => {
         cursor.classList.add('active');
-        const text = target.getAttribute('data-cursor');
+        let text = target.getAttribute('data-cursor');
+        if (text === 'PLAY') {
+          text = '▶'; // Show play symbol
+        }
         if (text) {
           cursorText.textContent = text;
         } else {

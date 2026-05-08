@@ -737,8 +737,16 @@ h1, h2, h3 {
 @media (max-width: 900px) {
   body { cursor: auto; }
   .cursor { display: none !important; }
-  .nav-links { display: none; }
+  .nav-links { 
+    display: flex; 
+    gap: 1.5rem; 
+  }
   
+  .nav-links a {
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+  }
+
   .main-content {
     padding-left: 0;
   }

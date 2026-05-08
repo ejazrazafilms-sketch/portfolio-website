@@ -791,4 +791,17 @@ h1, h2, h3 {
   .page-header {
     padding-top: 6rem;
   }
+
+  .break-caption {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    right: auto;
+    max-width: 100%;
+    background: var(--bg);
+    padding: 1.5rem 5vw;
+    font-size: 0.8rem;
+    border-left: none;
+    border-top: 1px solid var(--accent);
+  }
 }

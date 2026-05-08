@@ -792,6 +792,24 @@ h1, h2, h3 {
     padding-top: 6rem;
   }
 
+  .press-grid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 1.5rem;
+    padding-bottom: 2rem;
+    scrollbar-width: none;
+  }
+
+  .press-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .press-item {
+    flex: 0 0 85vw;
+    scroll-snap-align: center;
+  }
+
   .break-caption {
     position: relative;
     bottom: auto;

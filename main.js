@@ -104,7 +104,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const setupSliderSync = (slider, indicatorSpans) => {
     if (slider && indicatorSpans.length > 0) {
       slider.addEventListener('scroll', () => {
-        const scrollIndex = Math.round(slider.scrollLeft / slider.clientWidth);
+        // More robust index calculation based on scroll percentage
+        const scrollPercentage = slider.scrollLeft / (slider.scrollWidth - slider.clientWidth);
+        const scrollIndex = Math.round(scrollPercentage * (indicatorSpans.length - 1));
+        
         indicatorSpans.forEach((dot, index) => {
           if (index === scrollIndex) {
             dot.classList.add('active');

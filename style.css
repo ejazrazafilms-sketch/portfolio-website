@@ -740,26 +740,31 @@ h1, h2, h3 {
 @media (max-width: 900px) {
   body { cursor: auto; }
   .cursor { display: none !important; }
-  .top-nav {
-    height: 60px;
-    padding: 0 5vw;
-    background: rgba(28, 28, 28, 0.95);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+
+  .logo {
+    display: block;
+    font-size: 1.1rem;
   }
 
-  .nav-links { 
-    display: flex; 
-    gap: 1.2rem; 
+  .nav-links {
+    display: flex !important;
+    gap: 1.2rem;
   }
-  
+
   .nav-links a {
-    font-size: 0.6rem;
+    font-size: 0.65rem;
     letter-spacing: 0.1em;
   }
 
-  .top-nav .logo {
-    font-size: 1.2rem;
+  .navbar, .top-nav {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 1rem 5vw !important;
+    height: 70px !important;
+    background: rgba(0, 0, 0, 0.9) !important;
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   }
 
   .main-content {

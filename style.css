@@ -387,16 +387,22 @@ h1, h2, h3 {
 }
 
 .slider-indicator span {
-  width: 40px;
+  width: 30px;
   height: 2px;
-  background: var(--text);
-  opacity: 0.2;
-  transition: opacity 0.3s;
+  background: rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.slider-indicator span:hover {
+  background: rgba(255, 255, 255, 0.5);
+  height: 4px;
 }
 
 .slider-indicator span.active {
-  opacity: 1;
   background: var(--accent);
+  width: 60px;
+  height: 2px;
 }
 
 /* Cinematic Image Break */

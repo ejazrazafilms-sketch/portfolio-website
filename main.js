@@ -100,11 +100,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }, { passive: true });
   }
 
-  // 5. Slider Indicator Sync
+  // 5. Slider Indicator Sync & Navigation
   const setupSliderSync = (slider, indicatorSpans) => {
     if (slider && indicatorSpans.length > 0) {
+      // Update dots on scroll
       slider.addEventListener('scroll', () => {
-        // More robust index calculation based on scroll percentage
         const scrollPercentage = slider.scrollLeft / (slider.scrollWidth - slider.clientWidth);
         const scrollIndex = Math.round(scrollPercentage * (indicatorSpans.length - 1));
         
@@ -114,6 +114,21 @@ document.addEventListener("DOMContentLoaded", () => {
           } else {
             dot.classList.remove('active');
           }
+        });
+      }, { passive: true });
+
+      // Navigate on click
+      indicatorSpans.forEach((dot, index) => {
+        dot.style.cursor = 'pointer'; // Ensure pointer cursor
+        dot.classList.add('hover-target'); // Use custom cursor logic if needed
+        dot.setAttribute('data-cursor', 'GO');
+        
+        dot.addEventListener('click', () => {
+          const targetScroll = (slider.scrollWidth - slider.clientWidth) * (index / (indicatorSpans.length - 1));
+          slider.scrollTo({
+            left: targetScroll,
+            behavior: 'smooth'
+          });
         });
       });
     }

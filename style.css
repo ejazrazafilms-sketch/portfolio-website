@@ -85,13 +85,15 @@ body {
 }
 
 .loader-text {
-  font-family: var(--font-serif);
-  font-size: 2rem;
-  font-weight: 600;
-  letter-spacing: 0.2em;
-  color: var(--primary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
   opacity: 0;
   animation: pulseLoader 2s forwards;
+}
+
+.loader-text img {
+  filter: invert(1); /* If the logo is black, make it white for dark theme */
 }
 
 @keyframes pulseLoader {
@@ -139,11 +141,12 @@ h1, h2, h3 {
 }
 
 .top-nav .logo {
-  font-family: var(--font-serif);
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: var(--primary);
-  letter-spacing: 0.1em;
+  display: flex;
+  align-items: center;
+}
+
+.top-nav .logo img {
+  filter: invert(1); /* Make black logo white */
 }
 
 .nav-links {

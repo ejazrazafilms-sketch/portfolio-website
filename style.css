@@ -390,11 +390,12 @@ h1, h2, h3 {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: none;
-  border: 1px solid var(--accent);
+  background: rgba(28, 28, 28, 0.5); /* Semi-transparent background */
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(204, 255, 0, 0.3);
   color: var(--accent);
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -407,17 +408,13 @@ h1, h2, h3 {
 }
 
 .about-nav-btn svg {
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
   fill: currentColor;
 }
 
-/* Standard placement: 
-   Right arrow to go forward (Next)
-   Left arrow to go back (Prev) 
-*/
-.next-btn { right: 5vw; }
-.prev-btn { left: 5vw; }
+.next-btn { right: 2vw; }
+.prev-btn { left: 2vw; }
 
 .panel.about:hover .about-nav-btn {
   opacity: 1;
@@ -429,9 +426,21 @@ h1, h2, h3 {
   color: var(--bg);
 }
 
+@media (max-width: 1200px) {
+  .about-nav-btn {
+    width: 40px;
+    height: 40px;
+    background: rgba(28, 28, 28, 0.8); /* Stronger background on smaller screens */
+    border-color: var(--accent);
+  }
+  
+  .next-btn { right: 10px; }
+  .prev-btn { left: 10px; }
+}
+
 @media (max-width: 900px) {
   .about-nav-btn {
-    display: none !important;
+    display: none !important; /* Keep hidden on mobile to avoid touch overlap, use swipe instead */
   }
 }
 

@@ -412,12 +412,12 @@ h1, h2, h3 {
   fill: currentColor;
 }
 
-/* User's specific placement: 
-   Left arrow to change slide (Next)
-   Right arrow to go back (Prev) 
+/* Standard placement: 
+   Right arrow to go forward (Next)
+   Left arrow to go back (Prev) 
 */
-.next-btn { left: 5vw; }
-.prev-btn { right: 5vw; }
+.next-btn { right: 5vw; }
+.prev-btn { left: 5vw; }
 
 .panel.about:hover .about-nav-btn {
   opacity: 1;

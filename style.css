@@ -386,6 +386,55 @@ h1, h2, h3 {
   margin-top: 3rem;
 }
 
+.about-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: none;
+  z-index: 100;
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+
+.about-nav-btn svg {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+}
+
+/* User's specific placement: 
+   Left arrow to change slide (Next)
+   Right arrow to go back (Prev) 
+*/
+.next-btn { left: 5vw; }
+.prev-btn { right: 5vw; }
+
+.panel.about:hover .about-nav-btn {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.about-nav-btn:hover {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+@media (max-width: 900px) {
+  .about-nav-btn {
+    display: none !important;
+  }
+}
+
 .slider-indicator span {
   width: 30px;
   height: 2px;

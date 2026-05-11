@@ -138,6 +138,49 @@ document.addEventListener("DOMContentLoaded", () => {
   const aboutIndicators = document.querySelectorAll('.panel.about .slider-indicator span');
   setupSliderSync(aboutSlider, aboutIndicators);
 
+  // 5.1 About Navigation Arrows
+  const setupAboutArrows = () => {
+    const nextBtn = document.querySelector('.next-btn');
+    const prevBtn = document.querySelector('.prev-btn');
+    
+    if (!aboutSlider || !nextBtn || !prevBtn) return;
+
+    const updateArrows = () => {
+      const scrollPercentage = aboutSlider.scrollLeft / (aboutSlider.scrollWidth - aboutSlider.clientWidth);
+      const scrollIndex = Math.round(scrollPercentage * (aboutIndicators.length - 1));
+
+      // User request: Left arrow (next-btn) scrolls forward
+      // Right arrow (prev-btn) only on 2nd/3rd slides to go back
+      
+      if (scrollIndex >= aboutIndicators.length - 1) {
+        nextBtn.style.visibility = 'hidden';
+      } else {
+        nextBtn.style.visibility = 'visible';
+      }
+
+      if (scrollIndex > 0) {
+        prevBtn.style.visibility = 'visible';
+      } else {
+        prevBtn.style.visibility = 'hidden';
+      }
+    };
+
+    nextBtn.addEventListener('click', () => {
+      const slideWidth = aboutSlider.clientWidth;
+      aboutSlider.scrollBy({ left: slideWidth, behavior: 'smooth' });
+    });
+
+    prevBtn.addEventListener('click', () => {
+      const slideWidth = aboutSlider.clientWidth;
+      aboutSlider.scrollBy({ left: -slideWidth, behavior: 'smooth' });
+    });
+
+    aboutSlider.addEventListener('scroll', updateArrows, { passive: true });
+    updateArrows();
+  };
+
+  setupAboutArrows();
+
   const pressSlider = document.querySelector('.press-grid');
   const pressIndicators = document.querySelectorAll('.recognition-indicator span');
   setupSliderSync(pressSlider, pressIndicators);

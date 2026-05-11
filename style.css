@@ -184,7 +184,12 @@ h1, h2, h3 {
   flex-direction: column;
   justify-content: center;
   position: relative;
-  padding: 6rem 5vw;
+  padding: 4rem 5vw;
+}
+
+.panel.recognition-panel {
+  padding: 1rem 5vw;
+  min-height: auto;
 }
 
 .panel.hero {
@@ -224,7 +229,7 @@ h1, h2, h3 {
   height: auto;
   min-height: 100vh;
   overflow: visible;
-  padding: 2rem 5vw;
+  padding: 0 5vw;
 }
 
 .about-container {
@@ -653,8 +658,8 @@ h1, h2, h3 {
 
 /* Work Page Specifics */
 .work-intro {
-  margin-bottom: 2rem;
-  padding: 4rem 5vw;
+  margin-bottom: 0;
+  padding: 2rem 5vw;
   position: relative;
   overflow: hidden;
 }

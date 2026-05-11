@@ -220,6 +220,13 @@ h1, h2, h3 {
   position: relative;
 }
 
+.panel.work-panel {
+  height: auto;
+  min-height: 100vh;
+  overflow: visible;
+  padding: 6rem 5vw;
+}
+
 .about-container {
   width: 100%;
   max-width: 1200px;
@@ -646,8 +653,8 @@ h1, h2, h3 {
 
 /* Work Page Specifics */
 .work-intro {
-  margin-bottom: 8rem;
-  padding: 10rem 5vw;
+  margin-bottom: 4rem;
+  padding: 4rem 5vw;
   position: relative;
   overflow: hidden;
 }

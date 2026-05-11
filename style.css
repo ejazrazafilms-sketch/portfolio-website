@@ -660,6 +660,11 @@ h1, h2, h3 {
 }
 
 /* Work Page Specifics */
+.work-intro .giant-text {
+  font-size: clamp(3.5rem, 15vw, 18rem);
+  line-height: 0.85;
+}
+
 .work-intro {
   margin-bottom: 0;
   padding: 2rem 5vw;

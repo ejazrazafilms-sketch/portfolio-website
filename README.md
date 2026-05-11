@@ -1,6 +1,6 @@
 # Ejaz Raza Films - Portfolio
 
-A cinematic, interactive portfolio website for Syed Ejaz Raza Naqvi, a visionary film director and documentary filmmaker.
+A cinematic, interactive portfolio website for Syed Ejaz Raza Naqvi, a film director and documentary filmmaker.
 
 ## Features
 - Custom interactive cursor

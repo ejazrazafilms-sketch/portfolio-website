@@ -654,6 +654,17 @@ h1, h2, h3 {
   pointer-events: none;
 }
 
+.reveal-item {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-item.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .scattered-item:hover .item-info {
   transform: translateY(0);
   opacity: 1;

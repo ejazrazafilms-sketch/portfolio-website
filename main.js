@@ -262,4 +262,19 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
+
+  // 9. Reveal on Scroll
+  const revealItems = document.querySelectorAll('.scattered-item, .work-item, .award-item, .press-item');
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('revealed');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  revealItems.forEach(item => {
+    item.classList.add('reveal-item');
+    revealObserver.observe(item);
+  });
 });

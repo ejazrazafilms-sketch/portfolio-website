@@ -206,4 +206,60 @@ document.addEventListener("DOMContentLoaded", () => {
 
     btsSlides.forEach(slide => btsObserver.observe(slide));
   }
+
+  // 7. Parallax Effect for Work Posters
+  if (isDesktop) {
+    const workItems = document.querySelectorAll('.scattered-item, .work-item');
+    workItems.forEach(item => {
+      const poster = item.querySelector('.poster, .collage-img');
+      if (poster) {
+        item.addEventListener('mousemove', (e) => {
+          const { left, top, width, height } = item.getBoundingClientRect();
+          const x = (e.clientX - left) / width - 0.5;
+          const y = (e.clientY - top) / height - 0.5;
+          
+          // Subtle movement for depth
+          poster.style.transform = `scale(1.1) translate(${x * 20}px, ${y * 20}px)`;
+        });
+        
+        item.addEventListener('mouseleave', () => {
+          poster.style.transform = 'scale(1) translate(0, 0)';
+        });
+      }
+    });
+  }
+
+  // 8. Smooth Page Transitions
+  const internalLinks = document.querySelectorAll('a[href$=".html"]');
+  internalLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      // Check if it's the same page or external
+      const href = link.getAttribute('href');
+      if (href && !href.startsWith('http') && !href.startsWith('#')) {
+        e.preventDefault();
+        const loader = document.querySelector('.loader-overlay');
+        const loaderText = document.querySelector('.loader-text');
+        
+        if (loader) {
+          // Update loader text based on destination
+          if (loaderText) {
+            if (href.includes('commercial')) loaderText.innerHTML = '<img src="./assets/images/Logo/Ejaz%20logo.png" alt="EJAZ Logo" style="height: 100px; width: auto;">';
+            else if (href.includes('work')) loaderText.innerHTML = '<img src="./assets/images/Logo/Ejaz%20logo.png" alt="EJAZ Logo" style="height: 100px; width: auto;">';
+            else loaderText.innerHTML = '<img src="./assets/images/Logo/Ejaz%20logo.png" alt="EJAZ Logo" style="height: 100px; width: auto;">';
+          }
+
+          loader.style.display = 'flex';
+          setTimeout(() => {
+            loader.style.opacity = '1';
+          }, 10);
+          
+          setTimeout(() => {
+            window.location.href = href;
+          }, 800);
+        } else {
+          window.location.href = href;
+        }
+      }
+    });
+  });
 });

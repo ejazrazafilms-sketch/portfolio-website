@@ -328,51 +328,95 @@ h1, h2, h3 {
 }
 
 .press-item {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  padding: 3rem 2rem;
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 4rem 3rem;
   text-decoration: none;
   color: inherit;
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  border-radius: 4px;
+  justify-content: center;
+  border-radius: 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.press-item::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top right, rgba(212, 255, 0, 0.05), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.6s ease;
 }
 
 .press-item:hover {
-  background: rgba(255, 255, 255, 0.07);
-  border-color: var(--accent);
-  transform: translateY(-10px);
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(212, 255, 0, 0.4);
+  transform: translateY(-15px) scale(1.02);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+}
+
+.press-item:hover::before {
+  opacity: 1;
 }
 
 .press-source {
-  font-size: 0.8rem;
+  font-family: var(--font-main);
+  font-size: 0.75rem;
   color: var(--accent);
   text-transform: uppercase;
-  letter-spacing: 0.2rem;
-  margin-bottom: 1.5rem;
+  letter-spacing: 0.4em;
+  margin-bottom: 2rem;
   display: block;
+  font-weight: 700;
 }
 
 .press-item h4 {
   font-family: var(--font-serif);
-  font-size: 1.5rem;
+  font-size: 2.2rem;
   font-weight: 500;
-  line-height: 1.4;
-  margin-bottom: 2rem;
+  line-height: 1.1;
+  margin-bottom: 2.5rem;
+  position: relative;
+  z-index: 2;
 }
 
 .press-link {
-  font-size: 0.9rem;
-  font-weight: 800;
-  opacity: 0.6;
+  font-size: 0.8rem;
+  font-weight: 900;
+  color: var(--accent);
   text-transform: uppercase;
-  letter-spacing: 0.1rem;
+  letter-spacing: 0.2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: gap 0.4s ease;
+}
+
+.press-link::after {
+  content: '→';
+  font-size: 1.2rem;
 }
 
 .press-item:hover .press-link {
-  opacity: 1;
+  gap: 1.5rem;
+}
+
+.press-watermark {
+  position: absolute;
+  bottom: -20px;
+  right: -10px;
+  font-size: 8rem;
+  font-family: var(--font-serif);
+  font-weight: 900;
+  opacity: 0.03;
+  pointer-events: none;
+  text-transform: uppercase;
+  z-index: 1;
 }
 
 .contact-links .contact-btn {

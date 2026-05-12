@@ -111,20 +111,17 @@ h1, h2, h3 {
 .giant-text {
   font-family: var(--font-serif);
   font-size: clamp(2.5rem, 8vw, 10rem);
-  line-height: 0.85; /* Tighter line height for that editorial look */
-  letter-spacing: -0.04em; /* Slightly tighter spacing */
+  line-height: 0.9;
+  letter-spacing: -0.05em;
   margin: 0;
   text-transform: uppercase;
 }
 
 .subtitle {
-  font-size: clamp(0.9rem, 2vw, 1.2rem); /* Slightly smaller and more elegant */
+  font-size: clamp(1.2rem, 3vw, 2rem);
   color: var(--text);
-  margin-top: 1.5rem;
+  margin-top: 1rem;
   font-family: var(--font-main);
-  text-transform: uppercase;
-  letter-spacing: 0.3em; /* Wider spacing for elegance */
-  opacity: 0.8;
 }
 
 /* Top Navigation */

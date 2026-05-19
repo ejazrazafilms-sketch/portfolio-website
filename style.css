@@ -269,6 +269,42 @@ h1, h2, h3 {
   padding-right: 2rem;
 }
 
+.about-pane.has-image {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+}
+
+.about-pane-text {
+  flex: 1;
+}
+
+.about-pane-image {
+  flex: 0 0 30%;
+  max-width: 350px;
+}
+
+.about-pane-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  display: block;
+}
+
+@media (max-width: 900px) {
+  .about-pane.has-image {
+    flex-direction: column;
+    gap: 2rem;
+    align-items: flex-start;
+  }
+  .about-pane-image {
+    flex: none;
+    width: 100%;
+    max-width: 250px;
+  }
+}
+
 .about-pane h3 {
   font-size: clamp(2rem, 5vw, 3.5rem);
   font-family: var(--font-serif);

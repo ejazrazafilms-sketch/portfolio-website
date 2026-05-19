@@ -728,10 +728,27 @@ h1, h2, h3 {
   align-items: center;
   text-align: center;
   min-height: 60vh;
+  background-color: #ffffff;
+  color: #000000;
 }
 
 .panel.contact .giant-text {
   margin-bottom: 3rem;
+  color: #000000;
+}
+
+.panel.contact .btn-outline {
+  border-color: #000000;
+  color: #000000;
+}
+
+.panel.contact .btn-outline:hover {
+  background: #000000;
+  color: #ffffff;
+}
+
+.panel.contact .social-icon-link {
+  color: #000000;
 }
 
 .btn-outline {

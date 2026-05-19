@@ -714,6 +714,7 @@ h1, h2, h3 {
   font-size: 2rem;
   margin-bottom: 0.5rem;
   font-family: var(--font-serif);
+  text-transform: none !important;
 }
 
 .item-info span {
@@ -858,6 +859,7 @@ h1, h2, h3 {
 .item-info-static h3 {
   font-size: 1.5rem;
   margin-bottom: 0.5rem;
+  text-transform: none !important;
 }
 
 .item-info-static span {

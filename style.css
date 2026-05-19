@@ -596,6 +596,71 @@ h1, h2, h3 {
   height: 2px;
 }
 
+/* About Panel Light Theme Overrides */
+.panel.about {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.panel.about .section-label {
+  color: #000000;
+}
+
+.panel.about .about-pane h3 {
+  color: #000000;
+}
+
+.panel.about .about-pane p {
+  color: #000000;
+}
+
+.panel.about .pane-sub {
+  color: #000000;
+}
+
+.panel.about .offer-list li {
+  color: #000000;
+}
+
+.panel.about .offer-list li::before {
+  color: #000000;
+}
+
+.panel.about .btn-minimal {
+  color: #000000;
+  border-color: rgba(0, 0, 0, 0.2);
+  background: transparent;
+}
+
+.panel.about .btn-minimal:hover {
+  background: #000000;
+  color: #ffffff;
+  border-color: #000000;
+}
+
+.panel.about .about-nav-btn {
+  border-color: rgba(0, 0, 0, 0.2);
+  color: #000000;
+  background: transparent;
+}
+
+.panel.about .about-nav-btn:hover {
+  background: #000000;
+  color: #ffffff;
+}
+
+.panel.about .slider-indicator span {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.panel.about .slider-indicator span:hover {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.panel.about .slider-indicator span.active {
+  background: #000000;
+}
+
 /* Cinematic Image Break */
 .image-break {
   width: 100vw;

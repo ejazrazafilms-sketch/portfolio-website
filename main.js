@@ -146,6 +146,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const setupAboutArrows = () => {
     const nextBtn = document.querySelector('.next-btn');
     const prevBtn = document.querySelector('.prev-btn');
+    const aboutImage = document.querySelector('.about-pane-image');
     
     if (!aboutSlider || !nextBtn || !prevBtn) return;
 
@@ -166,6 +167,19 @@ document.addEventListener("DOMContentLoaded", () => {
         prevBtn.style.visibility = 'visible';
       } else {
         prevBtn.style.visibility = 'hidden';
+      }
+
+      // Smooth transition for headshot to disappear
+      if (aboutImage) {
+        const slideWidth = aboutSlider.clientWidth;
+        let opacity = 1 - (aboutSlider.scrollLeft / (slideWidth * 0.8)); // Fade out slightly before full scroll
+        if (opacity < 0) opacity = 0;
+        if (opacity > 1) opacity = 1;
+        aboutImage.style.opacity = opacity;
+        
+        // Add a slight translation for a parallax fade effect
+        let translateX = (aboutSlider.scrollLeft * 0.5); 
+        aboutImage.style.transform = `translateX(${translateX}px)`;
       }
     };
 

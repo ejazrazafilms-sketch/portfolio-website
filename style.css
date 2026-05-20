@@ -287,6 +287,7 @@ h1, h2, h3 {
 .about-pane-image {
   flex: 0 0 30%;
   max-width: 350px;
+  overflow: hidden;
 }
 
 .about-pane-image img {
@@ -300,13 +301,16 @@ h1, h2, h3 {
 @media (max-width: 900px) {
   .about-pane.has-image {
     flex-direction: column;
-    gap: 2rem;
-    align-items: flex-start;
+    gap: 0;
+  }
+  .about-pane-text {
+    margin-bottom: 2rem;
   }
   .about-pane-image {
     flex: none;
     width: 100%;
     max-width: 250px;
+    align-self: center;
   }
 }
 

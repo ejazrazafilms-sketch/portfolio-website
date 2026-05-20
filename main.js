@@ -179,6 +179,10 @@ document.addEventListener("DOMContentLoaded", () => {
         
         // Removed parallax translateX to prevent the next slide's text from overlaying the image
         aboutImage.style.transform = `translateX(0px)`;
+
+        // Collapse the height to remove negative space on the 2nd and 3rd slides
+        // 600px is safely larger than the natural height of the image
+        aboutImage.style.maxHeight = `${opacity * 600}px`;
       }
     };
 

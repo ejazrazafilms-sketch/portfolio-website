@@ -43,6 +43,9 @@ document.addEventListener("DOMContentLoaded", () => {
     hoverTargets.forEach(target => {
       target.addEventListener('mouseenter', () => {
         cursor.classList.add('active');
+        if (target.classList.contains('image-break')) {
+          cursor.classList.add('small-play');
+        }
         let text = target.getAttribute('data-cursor');
         if (text === 'PLAY') {
           text = '▶'; // Show play symbol
@@ -55,6 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
       target.addEventListener('mouseleave', () => {
         cursor.classList.remove('active');
+        cursor.classList.remove('small-play');
         cursorText.textContent = '';
       });
     });

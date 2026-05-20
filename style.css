@@ -52,6 +52,11 @@ body {
   border: 2px solid var(--accent);
 }
 
+.cursor.active.small-play {
+  width: 45px;
+  height: 45px;
+}
+
 .cursor-text {
   font-family: var(--font-main);
   font-size: 0.7rem;

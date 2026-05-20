@@ -172,14 +172,13 @@ document.addEventListener("DOMContentLoaded", () => {
       // Smooth transition for headshot to disappear
       if (aboutImage) {
         const slideWidth = aboutSlider.clientWidth;
-        let opacity = 1 - (aboutSlider.scrollLeft / (slideWidth * 0.8)); // Fade out slightly before full scroll
+        let opacity = 1 - (aboutSlider.scrollLeft / (slideWidth * 0.6)); // Fade out slightly faster
         if (opacity < 0) opacity = 0;
         if (opacity > 1) opacity = 1;
         aboutImage.style.opacity = opacity;
         
-        // Add a slight translation for a parallax fade effect
-        let translateX = (aboutSlider.scrollLeft * 0.5); 
-        aboutImage.style.transform = `translateX(${translateX}px)`;
+        // Removed parallax translateX to prevent the next slide's text from overlaying the image
+        aboutImage.style.transform = `translateX(0px)`;
       }
     };
 

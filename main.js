@@ -180,15 +180,20 @@ document.addEventListener("DOMContentLoaded", () => {
         // Removed parallax translateX to prevent the next slide's text from overlaying the image
         aboutImage.style.transform = `translateX(0px)`;
 
-        // Smoothly collapse height using exact natural height to prevent abrupt jumps
-        if (opacity === 1) {
-          aboutImage.style.height = ''; // Let it take natural height
-          if (aboutImage.clientHeight > 0) {
-            aboutImage.dataset.origHeight = aboutImage.clientHeight;
+        // Smoothly collapse height only on mobile to prevent abrupt jumps
+        if (window.innerWidth <= 900) {
+          if (opacity === 1) {
+            aboutImage.style.height = ''; // Let it take natural height
+            if (aboutImage.clientHeight > 0) {
+              aboutImage.dataset.origHeight = aboutImage.clientHeight;
+            }
+          } else {
+            let origH = parseFloat(aboutImage.dataset.origHeight) || 400;
+            aboutImage.style.height = `${opacity * origH}px`;
           }
         } else {
-          let origH = parseFloat(aboutImage.dataset.origHeight) || 400;
-          aboutImage.style.height = `${opacity * origH}px`;
+          // On desktop, do not collapse height, just fade out
+          aboutImage.style.height = '';
         }
       }
     };

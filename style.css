@@ -205,24 +205,87 @@ h1, h2, h3 {
   justify-content: center;
   align-items: center;
   text-align: center;
+  position: relative;
+  overflow: hidden;
 }
 
-.hero-content {
-  width: 100%;
-}
-
-.hero-bg {
+.hero-video-container {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-size: cover;
-  background-position: center 25%;
+  overflow: hidden;
   z-index: -1;
-  filter: brightness(0.3) contrast(1.2);
+}
+
+.hero-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.45) contrast(1.05);
   pointer-events: none;
-  background-attachment: fixed; /* Simple Vertical Parallax */
+}
+
+.hero-video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.4) 100%);
+  pointer-events: none;
+}
+
+.hero-unmute-btn {
+  position: absolute;
+  bottom: 5vh;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(28, 28, 28, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: var(--primary);
+  padding: 0.8rem 1.6rem;
+  border-radius: 100px;
+  font-size: 0.75rem;
+  font-family: var(--font-main);
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: none;
+  z-index: 10;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.hero-unmute-btn:hover {
+  background: var(--accent);
+  color: var(--bg);
+  border-color: var(--accent);
+  transform: translateX(-50%) translateY(-3px);
+  box-shadow: 0 15px 30px rgba(204, 255, 0, 0.25);
+}
+
+.hero-unmute-btn svg {
+  transition: transform 0.3s ease;
+}
+
+.hero-unmute-btn:hover svg {
+  transform: scale(1.1);
+}
+
+@media (max-width: 900px) {
+  .hero-unmute-btn {
+    cursor: pointer;
+    bottom: 6vh;
+    padding: 0.7rem 1.4rem;
+    font-size: 0.7rem;
+  }
 }
 
 /* About Panel Slider */

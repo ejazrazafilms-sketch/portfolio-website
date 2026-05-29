@@ -201,12 +201,14 @@ h1, h2, h3 {
 }
 
 .panel.hero {
-  padding: 0 5vw;
+  padding: 0;
   justify-content: center;
   align-items: center;
   text-align: center;
   position: relative;
   overflow: hidden;
+  height: 100vh;
+  min-height: 100svh;
 }
 
 .hero-video-container {
@@ -226,54 +228,54 @@ h1, h2, h3 {
   pointer-events: none;
 }
 
-.hero-unmute-btn {
+/* Hero controls — bottom right icon cluster */
+.hero-controls {
   position: absolute;
-  bottom: 5vh;
-  left: 50%;
-  transform: translateX(-50%);
-  background: rgba(28, 28, 28, 0.4);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  color: var(--primary);
-  padding: 0.8rem 1.6rem;
-  border-radius: 100px;
-  font-size: 0.75rem;
-  font-family: var(--font-main);
-  font-weight: 500;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
+  bottom: 2.5vh;
+  right: 2.5vw;
   display: flex;
   align-items: center;
-  gap: 10px;
-  cursor: none;
+  gap: 8px;
   z-index: 10;
-  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
-.hero-unmute-btn:hover {
+.hero-ctrl-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(15, 15, 15, 0.45);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: none;
+  transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.hero-ctrl-btn:hover {
   background: var(--accent);
-  color: var(--bg);
   border-color: var(--accent);
-  transform: translateX(-50%) translateY(-3px);
-  box-shadow: 0 15px 30px rgba(204, 255, 0, 0.25);
+  color: #000;
+  transform: scale(1.12);
 }
 
-.hero-unmute-btn svg {
-  transition: transform 0.3s ease;
-}
-
-.hero-unmute-btn:hover svg {
-  transform: scale(1.1);
+.hero-ctrl-btn svg {
+  flex-shrink: 0;
+  transition: transform 0.25s ease;
 }
 
 @media (max-width: 900px) {
-  .hero-unmute-btn {
+  .hero-ctrl-btn {
     cursor: pointer;
-    bottom: 6vh;
-    padding: 0.7rem 1.4rem;
-    font-size: 0.7rem;
+    width: 36px;
+    height: 36px;
+  }
+  .hero-controls {
+    bottom: 3vh;
+    right: 4vw;
   }
 }
 

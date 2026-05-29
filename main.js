@@ -104,36 +104,81 @@ document.addEventListener("DOMContentLoaded", () => {
     }, { passive: true });
   }
 
-  // 4.1 Hero Video Unmute Handling
+  // 4.1 Hero Video Controls (Mute toggle + Fullscreen)
   const heroVideo = document.getElementById('hero-video');
   const heroUnmuteBtn = document.getElementById('hero-unmute-btn');
+  const heroFullscreenBtn = document.getElementById('hero-fullscreen-btn');
+  const iconMuted = document.getElementById('icon-muted');
+  const iconUnmuted = document.getElementById('icon-unmuted');
 
+  // -- Mute / Unmute --
   if (heroVideo && heroUnmuteBtn) {
     heroUnmuteBtn.addEventListener('click', () => {
       heroVideo.muted = !heroVideo.muted;
-      
-      const unmuteText = heroUnmuteBtn.querySelector('.unmute-text');
-      const unmuteIcon = heroUnmuteBtn.querySelector('.unmute-icon');
-
       if (heroVideo.muted) {
-        if (unmuteText) unmuteText.textContent = 'Unmute';
-        heroUnmuteBtn.setAttribute('data-cursor', 'SOUND ON');
-        if (cursorText && document.querySelector('.cursor.active')) {
-          cursorText.textContent = 'SOUND ON';
-        }
-        if (unmuteIcon) {
-          unmuteIcon.innerHTML = `<path fill="currentColor" d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.21.05-.42.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/>`;
-        }
+        iconMuted.style.display = '';
+        iconUnmuted.style.display = 'none';
+        heroUnmuteBtn.setAttribute('data-cursor', 'SOUND');
       } else {
-        if (unmuteText) unmuteText.textContent = 'Mute';
+        iconMuted.style.display = 'none';
+        iconUnmuted.style.display = '';
         heroUnmuteBtn.setAttribute('data-cursor', 'MUTE');
-        if (cursorText && document.querySelector('.cursor.active')) {
-          cursorText.textContent = 'MUTE';
-        }
-        if (unmuteIcon) {
-          unmuteIcon.innerHTML = `<path fill="currentColor" d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>`;
-        }
       }
+    });
+  }
+
+  // -- Fullscreen: play once, no loop, then scroll to top on end --
+  if (heroVideo && heroFullscreenBtn) {
+    heroFullscreenBtn.addEventListener('click', () => {
+      // Save original state
+      const wasMuted = heroVideo.muted;
+      const wasLooping = heroVideo.loop;
+
+      // Set up for fullscreen playback
+      heroVideo.loop = false;
+      heroVideo.muted = false;
+      heroVideo.currentTime = 0;
+
+      // Enter fullscreen
+      const requestFS = heroVideo.requestFullscreen
+        || heroVideo.webkitRequestFullscreen
+        || heroVideo.mozRequestFullScreen
+        || heroVideo.msRequestFullscreen;
+      if (requestFS) requestFS.call(heroVideo);
+
+      // When fullscreen exits (either manually or after video ends) restore state
+      const onFSChange = () => {
+        const fsEl = document.fullscreenElement
+          || document.webkitFullscreenElement
+          || document.mozFullScreenElement
+          || document.msFullscreenElement;
+        if (!fsEl) {
+          // Restore loop + mute state
+          heroVideo.loop = wasLooping;
+          heroVideo.muted = wasMuted;
+          heroVideo.currentTime = 0;
+          // Scroll back to hero top
+          document.getElementById('hero').scrollIntoView({ behavior: 'smooth' });
+          document.removeEventListener('fullscreenchange', onFSChange);
+          document.removeEventListener('webkitfullscreenchange', onFSChange);
+        }
+      };
+
+      // When video ends in fullscreen, exit fullscreen automatically
+      const onEnded = () => {
+        const exitFS = document.exitFullscreen
+          || document.webkitExitFullscreen
+          || document.mozCancelFullScreen
+          || document.msExitFullscreen;
+        if (exitFS) exitFS.call(document);
+        heroVideo.removeEventListener('ended', onEnded);
+      };
+
+      heroVideo.addEventListener('ended', onEnded);
+      document.addEventListener('fullscreenchange', onFSChange);
+      document.addEventListener('webkitfullscreenchange', onFSChange);
+
+      heroVideo.play().catch(e => console.log('Fullscreen play blocked:', e));
     });
   }
 

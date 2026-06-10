@@ -202,6 +202,7 @@ h1, h2, h3 {
 
 .panel.hero {
   padding: 0;
+  display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
@@ -209,30 +210,34 @@ h1, h2, h3 {
   overflow: hidden;
   height: 100vh;
   min-height: 100svh;
+  background-color: #000; /* Black background for letterbox borders */
 }
 
 .hero-video-container {
-  position: absolute;
-  top: 0;
-  left: 0;
+  position: relative;
   width: 100%;
-  height: 100%;
+  max-width: 100%;
+  aspect-ratio: 1280 / 550; /* Cropped video aspect ratio */
+  max-height: 100vh;
   overflow: hidden;
-  z-index: -1;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .hero-video {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain; /* Perfect fit for the widescreen frame */
   pointer-events: none;
 }
 
-/* Hero controls — bottom right icon cluster */
+/* Hero controls — positioned inside bottom right corner of the video frame */
 .hero-controls {
   position: absolute;
-  bottom: 2.5vh;
-  right: 2.5vw;
+  bottom: 24px;
+  right: 24px;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -274,8 +279,8 @@ h1, h2, h3 {
     height: 36px;
   }
   .hero-controls {
-    bottom: 3vh;
-    right: 4vw;
+    bottom: 16px;
+    right: 16px;
   }
 }
 

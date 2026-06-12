@@ -1,4 +1,6 @@
 // main.js
+import desktopVideo from './assets/videos/Updated_Reel_Landscape_compressed.mp4';
+import mobileVideo from './assets/videos/Updated_Reel_Potrait_compressed.mp4';
 
 document.addEventListener("DOMContentLoaded", () => {
   // 1. Loader
@@ -13,6 +15,17 @@ document.addEventListener("DOMContentLoaded", () => {
   }, 1500);
 
   const isDesktop = window.innerWidth > 900;
+
+  // Responsive Hero Video Loading
+  const heroVideo = document.getElementById('hero-video');
+  if (heroVideo) {
+    const isMobile = !isDesktop;
+    const videoSrc = isMobile ? mobileVideo : desktopVideo;
+    
+    heroVideo.src = videoSrc;
+    heroVideo.load();
+    heroVideo.play().catch(err => console.log("Hero video autoplay failed:", err));
+  }
 
   // 2. Custom Cursor
   const cursor = document.querySelector('.cursor');
@@ -105,7 +118,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // 4.1 Hero Video Controls (Mute toggle + Fullscreen)
-  const heroVideo = document.getElementById('hero-video');
   const heroUnmuteBtn = document.getElementById('hero-unmute-btn');
   const heroFullscreenBtn = document.getElementById('hero-fullscreen-btn');
   const iconMuted = document.getElementById('icon-muted');

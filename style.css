@@ -278,6 +278,9 @@ h1, h2, h3 {
     width: 36px;
     height: 36px;
   }
+  .hero-video-container {
+    aspect-ratio: 720 / 1024;
+  }
   .hero-controls {
     bottom: 16px;
     right: 16px;

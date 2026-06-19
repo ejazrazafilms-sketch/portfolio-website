@@ -1,6 +1,7 @@
 // main.js
 import desktopVideo from './assets/videos/Updated_Reel_Landscape_compressed.mp4';
 import mobileVideo from './assets/videos/Updated_Reel_Potrait_compressed.mp4';
+import fullscreenVideo from './assets/videos/Landscape_Video_fullscreen.mp4';
 
 document.addEventListener("DOMContentLoaded", () => {
   // 1. Loader
@@ -16,15 +17,37 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const isDesktop = window.innerWidth > 900;
 
-  // Responsive Hero Video Loading
+  // Responsive Hero Video Loading & Resize Handling
   const heroVideo = document.getElementById('hero-video');
-  if (heroVideo) {
-    const isMobile = !isDesktop;
-    const videoSrc = isMobile ? mobileVideo : desktopVideo;
+  let currentMode = window.innerWidth > 900 ? 'desktop' : 'mobile';
+
+  function updateHeroVideoSource() {
+    if (!heroVideo) return;
+    const isMobile = window.innerWidth <= 900;
+    const targetSrc = isMobile ? mobileVideo : desktopVideo;
+    const activeMode = isMobile ? 'mobile' : 'desktop';
     
-    heroVideo.src = videoSrc;
+    // Only update if we are not in fullscreen
+    const fsEl = document.fullscreenElement
+      || document.webkitFullscreenElement
+      || document.mozFullScreenElement
+      || document.msFullscreenElement;
+
+    if (activeMode !== currentMode && !fsEl) {
+      currentMode = activeMode;
+      heroVideo.src = targetSrc;
+      heroVideo.load();
+      heroVideo.play().catch(err => console.log("Hero video load/play failed on resize:", err));
+    }
+  }
+
+  if (heroVideo) {
+    const isMobile = window.innerWidth <= 900;
+    heroVideo.src = isMobile ? mobileVideo : desktopVideo;
     heroVideo.load();
     heroVideo.play().catch(err => console.log("Hero video autoplay failed:", err));
+
+    window.addEventListener('resize', updateHeroVideoSource);
   }
 
   // 2. Custom Cursor
@@ -123,10 +146,25 @@ document.addEventListener("DOMContentLoaded", () => {
   const iconMuted = document.getElementById('icon-muted');
   const iconUnmuted = document.getElementById('icon-unmuted');
 
+  // Track manual mute state
+  let isManuallyMuted = false;
+
   // -- Mute / Unmute --
   if (heroVideo && heroUnmuteBtn) {
+    // Initial sync of icons in case the HTML has different default values
+    if (heroVideo.muted) {
+      iconMuted.style.display = '';
+      iconUnmuted.style.display = 'none';
+      heroUnmuteBtn.setAttribute('data-cursor', 'SOUND');
+    } else {
+      iconMuted.style.display = 'none';
+      iconUnmuted.style.display = '';
+      heroUnmuteBtn.setAttribute('data-cursor', 'MUTE');
+    }
+
     heroUnmuteBtn.addEventListener('click', () => {
       heroVideo.muted = !heroVideo.muted;
+      isManuallyMuted = heroVideo.muted;
       if (heroVideo.muted) {
         iconMuted.style.display = '';
         iconUnmuted.style.display = 'none';
@@ -139,17 +177,18 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // -- Fullscreen: play once, no loop, then scroll to top on end --
+  // -- Fullscreen --
   if (heroVideo && heroFullscreenBtn) {
     heroFullscreenBtn.addEventListener('click', () => {
-      // Save original state
-      const wasMuted = heroVideo.muted;
-      const wasLooping = heroVideo.loop;
+      const originalSrc = heroVideo.src;
+      const originalMuted = heroVideo.muted;
+      const originalLoop = heroVideo.loop;
 
-      // Set up for fullscreen playback
-      heroVideo.loop = false;
-      heroVideo.muted = false;
-      heroVideo.currentTime = 0;
+      // Swap to fullscreen video (desktop version with black bars included)
+      heroVideo.src = fullscreenVideo;
+      heroVideo.load();
+      heroVideo.loop = true; // both background & fullscreen play in loop
+      heroVideo.muted = isManuallyMuted; // play audio automatically except when manually muted
 
       // Enter fullscreen
       const requestFS = heroVideo.requestFullscreen
@@ -158,35 +197,39 @@ document.addEventListener("DOMContentLoaded", () => {
         || heroVideo.msRequestFullscreen;
       if (requestFS) requestFS.call(heroVideo);
 
-      // When fullscreen exits (either manually or after video ends) restore state
       const onFSChange = () => {
         const fsEl = document.fullscreenElement
           || document.webkitFullscreenElement
           || document.mozFullScreenElement
           || document.msFullscreenElement;
         if (!fsEl) {
-          // Restore loop + mute state
-          heroVideo.loop = wasLooping;
-          heroVideo.muted = wasMuted;
-          heroVideo.currentTime = 0;
-          // Scroll back to hero top
-          document.getElementById('hero').scrollIntoView({ behavior: 'smooth' });
+          // Restore original video src and state
+          heroVideo.src = originalSrc;
+          heroVideo.load();
+          heroVideo.loop = originalLoop;
+          heroVideo.muted = originalMuted;
+
+          // Re-sync mute UI
+          if (heroVideo.muted) {
+            iconMuted.style.display = '';
+            iconUnmuted.style.display = 'none';
+            if (heroUnmuteBtn) heroUnmuteBtn.setAttribute('data-cursor', 'SOUND');
+          } else {
+            iconMuted.style.display = 'none';
+            iconUnmuted.style.display = '';
+            if (heroUnmuteBtn) heroUnmuteBtn.setAttribute('data-cursor', 'MUTE');
+          }
+
+          heroVideo.play().catch(e => console.log('Restore play failed:', e));
+
+          const heroSec = document.getElementById('hero');
+          if (heroSec) heroSec.scrollIntoView({ behavior: 'smooth' });
+
           document.removeEventListener('fullscreenchange', onFSChange);
           document.removeEventListener('webkitfullscreenchange', onFSChange);
         }
       };
 
-      // When video ends in fullscreen, exit fullscreen automatically
-      const onEnded = () => {
-        const exitFS = document.exitFullscreen
-          || document.webkitExitFullscreen
-          || document.mozCancelFullScreen
-          || document.msExitFullscreen;
-        if (exitFS) exitFS.call(document);
-        heroVideo.removeEventListener('ended', onEnded);
-      };
-
-      heroVideo.addEventListener('ended', onEnded);
       document.addEventListener('fullscreenchange', onFSChange);
       document.addEventListener('webkitfullscreenchange', onFSChange);
 

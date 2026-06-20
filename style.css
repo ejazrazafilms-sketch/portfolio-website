@@ -226,18 +226,35 @@ h1, h2, h3 {
   pointer-events: none;
 }
 
-/* Ensure that in fullscreen mode, the video fits entirely on the screen without being cropped */
-.hero-video:fullscreen {
-  object-fit: contain !important;
+/* Ensure that in fullscreen mode, the video fits or covers the screen correctly depending on orientation */
+@media (orientation: portrait) {
+  .hero-video:fullscreen {
+    object-fit: contain !important;
+  }
+  .hero-video:-webkit-full-screen {
+    object-fit: contain !important;
+  }
+  .hero-video:-moz-full-screen {
+    object-fit: contain !important;
+  }
+  .hero-video:-ms-fullscreen {
+    object-fit: contain !important;
+  }
 }
-.hero-video:-webkit-full-screen {
-  object-fit: contain !important;
-}
-.hero-video:-moz-full-screen {
-  object-fit: contain !important;
-}
-.hero-video:-ms-fullscreen {
-  object-fit: contain !important;
+
+@media (orientation: landscape) {
+  .hero-video:fullscreen {
+    object-fit: cover !important;
+  }
+  .hero-video:-webkit-full-screen {
+    object-fit: cover !important;
+  }
+  .hero-video:-moz-full-screen {
+    object-fit: cover !important;
+  }
+  .hero-video:-ms-fullscreen {
+    object-fit: cover !important;
+  }
 }
 
 /* Hero controls — positioned inside bottom right corner of the video frame */

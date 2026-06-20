@@ -1,7 +1,6 @@
 // main.js
 import desktopVideo from './assets/videos/Updated_Reel_Landscape_compressed.mp4';
 import mobileVideo from './assets/videos/Updated_Reel_Potrait_compressed.mp4';
-import fullscreenVideo from './assets/videos/Landscape_Video_fullscreen.mp4';
 
 document.addEventListener("DOMContentLoaded", () => {
   // 1. Loader
@@ -184,8 +183,8 @@ document.addEventListener("DOMContentLoaded", () => {
       const originalMuted = heroVideo.muted;
       const originalLoop = heroVideo.loop;
 
-      // Swap to fullscreen video (desktop version with black bars included)
-      heroVideo.src = fullscreenVideo;
+      // Swap to fullscreen video (desktop version)
+      heroVideo.src = desktopVideo;
       heroVideo.load();
       heroVideo.loop = true; // both background & fullscreen play in loop
       heroVideo.muted = isManuallyMuted; // play audio automatically except when manually muted

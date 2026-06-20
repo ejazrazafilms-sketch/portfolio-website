@@ -226,6 +226,20 @@ h1, h2, h3 {
   pointer-events: none;
 }
 
+/* Ensure that in fullscreen mode, the video fits entirely on the screen without being cropped */
+.hero-video:fullscreen {
+  object-fit: contain !important;
+}
+.hero-video:-webkit-full-screen {
+  object-fit: contain !important;
+}
+.hero-video:-moz-full-screen {
+  object-fit: contain !important;
+}
+.hero-video:-ms-fullscreen {
+  object-fit: contain !important;
+}
+
 /* Hero controls — positioned inside bottom right corner of the video frame */
 .hero-controls {
   position: absolute;

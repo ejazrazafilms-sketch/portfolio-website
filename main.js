@@ -190,48 +190,55 @@ document.addEventListener("DOMContentLoaded", () => {
       heroVideo.loop = true; // both background & fullscreen play in loop
       heroVideo.muted = isManuallyMuted; // play audio automatically except when manually muted
 
-      // Enter fullscreen
+      // Enter fullscreen (iOS Safari uses webkitEnterFullscreen on video element)
       const requestFS = heroVideo.requestFullscreen
         || heroVideo.webkitRequestFullscreen
+        || heroVideo.webkitEnterFullscreen
         || heroVideo.mozRequestFullScreen
         || heroVideo.msRequestFullscreen;
       if (requestFS) requestFS.call(heroVideo);
 
-      const onFSChange = () => {
+      function exitFullscreenHandler() {
+        // Restore original video src and state
+        heroVideo.src = originalSrc;
+        heroVideo.load();
+        heroVideo.loop = originalLoop;
+        heroVideo.muted = originalMuted;
+
+        // Re-sync mute UI
+        if (heroVideo.muted) {
+          iconMuted.style.display = '';
+          iconUnmuted.style.display = 'none';
+          if (heroUnmuteBtn) heroUnmuteBtn.setAttribute('data-cursor', 'SOUND');
+        } else {
+          iconMuted.style.display = 'none';
+          iconUnmuted.style.display = '';
+          if (heroUnmuteBtn) heroUnmuteBtn.setAttribute('data-cursor', 'MUTE');
+        }
+
+        heroVideo.play().catch(e => console.log('Restore play failed:', e));
+
+        const heroSec = document.getElementById('hero');
+        if (heroSec) heroSec.scrollIntoView({ behavior: 'smooth' });
+
+        document.removeEventListener('fullscreenchange', onFSChange);
+        document.removeEventListener('webkitfullscreenchange', onFSChange);
+        heroVideo.removeEventListener('webkitendfullscreen', exitFullscreenHandler);
+      }
+
+      function onFSChange() {
         const fsEl = document.fullscreenElement
           || document.webkitFullscreenElement
           || document.mozFullScreenElement
           || document.msFullscreenElement;
         if (!fsEl) {
-          // Restore original video src and state
-          heroVideo.src = originalSrc;
-          heroVideo.load();
-          heroVideo.loop = originalLoop;
-          heroVideo.muted = originalMuted;
-
-          // Re-sync mute UI
-          if (heroVideo.muted) {
-            iconMuted.style.display = '';
-            iconUnmuted.style.display = 'none';
-            if (heroUnmuteBtn) heroUnmuteBtn.setAttribute('data-cursor', 'SOUND');
-          } else {
-            iconMuted.style.display = 'none';
-            iconUnmuted.style.display = '';
-            if (heroUnmuteBtn) heroUnmuteBtn.setAttribute('data-cursor', 'MUTE');
-          }
-
-          heroVideo.play().catch(e => console.log('Restore play failed:', e));
-
-          const heroSec = document.getElementById('hero');
-          if (heroSec) heroSec.scrollIntoView({ behavior: 'smooth' });
-
-          document.removeEventListener('fullscreenchange', onFSChange);
-          document.removeEventListener('webkitfullscreenchange', onFSChange);
+          exitFullscreenHandler();
         }
-      };
+      }
 
       document.addEventListener('fullscreenchange', onFSChange);
       document.addEventListener('webkitfullscreenchange', onFSChange);
+      heroVideo.addEventListener('webkitendfullscreen', exitFullscreenHandler);
 
       heroVideo.play().catch(e => console.log('Fullscreen play blocked:', e));
     });

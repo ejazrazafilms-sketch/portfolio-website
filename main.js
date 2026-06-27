@@ -322,6 +322,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const pressIndicators = document.querySelectorAll('.recognition-indicator span');
   setupSliderSync(pressSlider, pressIndicators);
 
+  const shortFilmsSlider = document.querySelector('#short-films .work-grid');
+  const shortFilmsIndicators = document.querySelectorAll('.shortfilms-indicator span');
+  setupSliderSync(shortFilmsSlider, shortFilmsIndicators);
+
   // Recognition carousel: highlight center card + nav arrows
   if (pressSlider) {
     const pressItems = pressSlider.querySelectorAll('.press-item');

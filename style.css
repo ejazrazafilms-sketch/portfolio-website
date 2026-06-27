@@ -1348,8 +1348,15 @@ body.fullscreen-open {
     justify-content: center;
     margin-top: 2rem;
   }
+
+  .shortfilms-indicator {
+    display: flex !important;
+    justify-content: center;
+    margin-top: 2rem;
+  }
 }
 
-.recognition-indicator {
+.recognition-indicator,
+.shortfilms-indicator {
   display: none;
 }

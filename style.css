@@ -1312,6 +1312,23 @@ body.fullscreen-open {
   .press-item.is-center { transform: scale(1); box-shadow: none; }
   .rec-nav-btn { display: none; }
 
+  /* Short Films horizontal scroll on mobile */
+  #short-films .work-grid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 1.5rem;
+    padding-bottom: 2rem;
+    scrollbar-width: none; /* Firefox */
+  }
+  #short-films .work-grid::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+  }
+  #short-films .work-item {
+    flex: 0 0 80vw;
+    scroll-snap-align: center;
+  }
+
 
   .break-caption {
     position: relative;

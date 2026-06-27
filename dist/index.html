@@ -13,8 +13,8 @@
   <meta property="og:url" content="https://ejazrazafilms.com/">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/png" href="/assets/Ejaz%20logo-Ci01_AYi.png">
-  <script type="module" crossorigin src="/assets/main-CqyWPAtK.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/main-CsV6BX3m.css">
+  <script type="module" crossorigin src="/assets/main-CYuN-D7k.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/main-C2tQ1eOo.css">
 </head>
 <body>
   <!-- Custom Cursor -->
@@ -54,7 +54,7 @@
           </button>
           <!-- Fullscreen -->
           <button id="hero-fullscreen-btn" class="hero-ctrl-btn hover-target" data-cursor="EXPAND" aria-label="Watch fullscreen">
-            <svg viewBox="0 0 24 24" width="20" height="20">
+            <svg id="icon-expand" viewBox="0 0 24 24" width="20" height="20">
               <path fill="currentColor" d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/>
             </svg>
           </button>
@@ -73,15 +73,16 @@
 
       <div class="about-container">
         <h2 class="section-label">About</h2>
+        <!-- Headshot — always visible, pinned on mobile across all slides -->
+        <div class="about-pane-image">
+          <img src="/assets/18620BEC-B9FF-4801-8264-590C801910C0-BTBsU_gr.JPG" alt="Ejaz Headshot">
+        </div>
         <div class="about-slider">
           <!-- Pane 1: THE DIRECTOR -->
           <div class="about-pane has-image">
             <div class="about-pane-text">
               <h3>WHO I AM</h3>
               <p>I'm a filmmaker from Karachi, Pakistan, based in the USA. I grew up surrounded by stories that never made it to screen, and that's what pushed me toward cinema. My short documentary <em>Surfers of Silver Linings</em> took me back to one of Karachi's islands where, through interviews with its people and children, I tried to give voice to lives full of struggle and quiet determination. The film won the Best Documentary Award at the National Amateur Short Film Festival 2022, but more than any recognition, it reinforced what I have always believed: the most powerful stories are hiding in plain sight, in the city that made me.</p>
-            </div>
-            <div class="about-pane-image">
-              <img src="/assets/18620BEC-B9FF-4801-8264-590C801910C0-BTBsU_gr.JPG" alt="Ejaz Headshot">
             </div>
           </div>
           <!-- Pane 2: THE VISION -->
@@ -124,6 +125,15 @@
     <section id="recognition" class="panel press">
       <div class="press-container">
         <h2 class="section-label">Recognition</h2>
+
+        <!-- Desktop nav arrows -->
+        <button class="rec-nav-btn rec-prev" aria-label="Previous">
+          <svg viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+        </button>
+        <button class="rec-nav-btn rec-next" aria-label="Next">
+          <svg viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+        </button>
+
         <div class="press-grid">
           
           <!-- Award 1 -->
@@ -304,7 +314,22 @@
       <!-- Short Film Collaborations Section -->
       <section id="short-films" class="work-section">
         <h2 class="section-title">Short Film Collaborations</h2>
-        <div class="work-grid">
+
+        <!-- Mobile: single summary card (same style as Commercial Collaborations) -->
+        <div class="work-grid mobile-shortfilm-single">
+          <a href="#short-films-full" class="work-item wide hover-target mobile-collab-card" data-cursor="VIEW ALL">
+            <div class="image-wrapper">
+              <div class="poster" style="background-image: url('/assets/Unscripted%20Connections%20-%20Poster%20-%20By%20Ahsan%20Khan%202-CD4wLs46.jpg'); background-size: cover; background-position: center;"></div>
+            </div>
+            <div class="item-info-static" style="padding: 2rem 0;">
+              <h3>Short Film Collaborations</h3>
+              <span>Associate / Assistant Director &amp; more • 12 Films</span>
+            </div>
+          </a>
+        </div>
+
+        <!-- Desktop (and mobile expanded): full grid -->
+        <div id="short-films-full" class="work-grid desktop-shortfilm-grid">
           <a href="https://www.youtube.com/watch?v=mw5zODWbrj4&t=1s" target="_blank" class="work-item has-image hover-target" data-cursor="PLAY">
             <div class="image-wrapper">
               <div class="poster" style="background-image: url('/assets/Unscripted%20Connections%20-%20Poster%20-%20By%20Ahsan%20Khan%202-CD4wLs46.jpg'); background-size: cover; background-position: center center;"></div>
@@ -317,7 +342,7 @@
 
           <a href="https://www.youtube.com/watch?v=ddzlf3ya0lQ&t=28s" target="_blank" class="work-item has-image hover-target" data-cursor="PLAY">
             <div class="image-wrapper">
-              <div class="poster" style="background-image: url('/assets/Screenshot%202026-04-17%20at%202.35.59%E2%80%AFAM-DyALRPw9.png'); background-size: 125% auto; background-position: center center;"></div>
+              <div class="poster" style="background-image: url('./assets/images/posters/Screenshot 2026-04-17 at 2.35.59 AM.png'); background-size: 125% auto; background-position: center center;"></div>
             </div>
             <div class="item-info-static" style="padding: 1.5rem;">
               <h3>Just A Minute</h3>
@@ -327,7 +352,7 @@
 
           <a href="https://www.youtube.com/watch?v=wUPkC7o20yE&t=3s" target="_blank" class="work-item has-image hover-target" data-cursor="PLAY">
             <div class="image-wrapper">
-              <div class="poster" style="background-image: url('/assets/Screenshot%202026-04-17%20at%202.41.12%E2%80%AFAM-3ip_--Fl.png'); background-size: 125% auto; background-position: center center;"></div>
+              <div class="poster" style="background-image: url('./assets/images/posters/Screenshot 2026-04-17 at 2.41.12 AM.png'); background-size: 125% auto; background-position: center center;"></div>
             </div>
             <div class="item-info-static" style="padding: 1.5rem;">
               <h3>Samsara</h3>
@@ -337,7 +362,7 @@
 
           <a href="https://youtu.be/rs6F11mru4k" target="_blank" class="work-item has-image hover-target" data-cursor="PLAY">
             <div class="image-wrapper">
-              <div class="poster" style="background-image: url('/assets/Screenshot%202026-04-17%20at%202.24.44%E2%80%AFAM-VWJSK1Kp.png'); background-size: 125% auto; background-position: center center;"></div>
+              <div class="poster" style="background-image: url('./assets/images/posters/Screenshot 2026-04-17 at 2.24.44 AM.png'); background-size: 125% auto; background-position: center center;"></div>
             </div>
             <div class="item-info-static" style="padding: 1.5rem;">
               <h3>39 Britannia</h3>
@@ -347,7 +372,7 @@
 
           <a href="https://youtu.be/n9mNBvCppZo" target="_blank" class="work-item has-image hover-target" data-cursor="PLAY">
             <div class="image-wrapper">
-              <div class="poster" style="background-image: url('/assets/Screenshot%202026-04-17%20at%202.25.39%E2%80%AFAM-Bk12YiWk.png'); background-size: 210% auto; background-repeat: no-repeat; background-position: 40% center;"></div>
+              <div class="poster" style="background-image: url('./assets/images/posters/Screenshot 2026-04-17 at 2.25.39 AM.png'); background-size: 210% auto; background-repeat: no-repeat; background-position: 40% center;"></div>
             </div>
             <div class="item-info-static" style="padding: 1.5rem;">
               <h3>Conscience Under Seven Covers</h3>
@@ -357,7 +382,7 @@
 
           <a href="https://www.youtube.com/watch?v=ccjEyZrfdtE" target="_blank" class="work-item has-image hover-target" data-cursor="PLAY">
             <div class="image-wrapper">
-              <div class="poster" style="background-image: url('/assets/Screenshot%202026-04-17%20at%202.44.26%E2%80%AFAM-CcfORo4x.png'); background-size: 125% auto; background-position: center center;"></div>
+              <div class="poster" style="background-image: url('./assets/images/posters/Screenshot 2026-04-17 at 2.44.26 AM.png'); background-size: 125% auto; background-position: center center;"></div>
             </div>
             <div class="item-info-static" style="padding: 1.5rem;">
               <h3>2AM</h3>
@@ -367,7 +392,7 @@
 
           <div class="work-item has-image hover-target" data-cursor="VIEW">
             <div class="image-wrapper">
-              <div class="poster" style="background-image: url('/assets/Screenshot%202026-04-17%20at%202.46.05%E2%80%AFAM-DWxz7SC_.png'); background-size: 125% auto; background-position: center center;"></div>
+              <div class="poster" style="background-image: url('./assets/images/posters/Screenshot 2026-04-17 at 2.46.05 AM.png'); background-size: 125% auto; background-position: center center;"></div>
             </div>
             <div class="item-info-static" style="padding: 1.5rem;">
               <h3>Clean Slate</h3>
@@ -381,13 +406,13 @@
             </div>
             <div class="item-info-static" style="padding: 1.5rem;">
               <h3>Purse Saver</h3>
-              <span>Assistant Director & Script Supervisor • Dir. Nathan Meikle</span>
+              <span>Assistant Director &amp; Script Supervisor • Dir. Nathan Meikle</span>
             </div>
           </a>
 
           <a href="https://youtu.be/S6v_yz6z2C0" target="_blank" class="work-item has-image hover-target" data-cursor="PLAY">
             <div class="image-wrapper">
-              <div class="poster" style="background-image: url('/assets/Screenshot%202026-04-18%20at%201.00.42%E2%80%AFAM-BantVRCR.png'); background-size: 125% auto; background-position: center center;"></div>
+              <div class="poster" style="background-image: url('./assets/images/posters/Screenshot 2026-04-18 at 1.00.42 AM.png'); background-size: 125% auto; background-position: center center;"></div>
             </div>
             <div class="item-info-static" style="padding: 1.5rem;">
               <h3>Metronome</h3>
@@ -427,14 +452,15 @@
 
           <a href="https://youtu.be/38BIiwNEaq0?si=sUJA-Eba7ah4059B" target="_blank" class="work-item has-image hover-target" data-cursor="PLAY">
             <div class="image-wrapper">
-              <div class="poster" style="background-image: url('/assets/Screenshot%202026-05-18%20at%2010.52.45%E2%80%AFPM-CGO62mdK.png'); background-size: contain; background-repeat: no-repeat; background-color: #000; background-position: center center;"></div>
+              <div class="poster" style="background-image: url('./assets/images/posters/Screenshot 2026-05-18 at 10.52.45 PM.png'); background-size: contain; background-repeat: no-repeat; background-color: #000; background-position: center center;"></div>
             </div>
             <div class="item-info-static" style="padding: 1.5rem;">
               <h3>It is what it is</h3>
               <span>Line Producer • Dir. Bilal Tariq</span>
             </div>
           </a>
-<a href="https://youtu.be/YSxlhwPPU1s?feature=shared" target="_blank" class="work-item has-image hover-target" data-cursor="PLAY">
+
+          <a href="https://youtu.be/YSxlhwPPU1s?feature=shared" target="_blank" class="work-item has-image hover-target" data-cursor="PLAY">
             <div class="image-wrapper">
               <div class="poster" style="background-image: url('/assets/WhatsApp%20Image%202026-04-27%20at%204.52.50%20PM-BMmx8BqO.jpeg'); background-size: cover; background-position: center center;"></div>
             </div>
@@ -487,6 +513,14 @@
     <footer style="padding: 4rem 5vw; text-align: center; font-size: 0.8rem; opacity: 0.4; letter-spacing: 0.1em; text-transform: uppercase;">
       &copy; 2026 Ejaz Raza Films. All rights reserved.
     </footer>
+  </div>
+
+  <!-- Custom fullscreen overlay — works on both mobile and desktop -->
+  <div id="custom-fullscreen-overlay" aria-modal="true" role="dialog">
+    <video id="fullscreen-video" playsinline loop></video>
+    <button id="custom-fullscreen-close" aria-label="Close fullscreen">
+      <svg viewBox="0 0 24 24" width="28" height="28"><path fill="currentColor" d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+    </button>
   </div>
 
 </body>

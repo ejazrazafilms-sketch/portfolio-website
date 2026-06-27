@@ -228,33 +228,91 @@ h1, h2, h3 {
 
 /* Ensure that in fullscreen mode, the video fits or covers the screen correctly depending on orientation */
 @media (orientation: portrait) {
-  .hero-video:fullscreen {
+  .hero-video:fullscreen, .fullscreen-video:fullscreen {
     object-fit: contain !important;
   }
-  .hero-video:-webkit-full-screen {
+  .hero-video:-webkit-full-screen, .fullscreen-video:-webkit-full-screen {
     object-fit: contain !important;
   }
-  .hero-video:-moz-full-screen {
+  .hero-video:-moz-full-screen, .fullscreen-video:-moz-full-screen {
     object-fit: contain !important;
   }
-  .hero-video:-ms-fullscreen {
+  .hero-video:-ms-fullscreen, .fullscreen-video:-ms-fullscreen {
     object-fit: contain !important;
   }
 }
 
 @media (orientation: landscape) {
-  .hero-video:fullscreen {
+  .hero-video:fullscreen, .fullscreen-video:fullscreen {
     object-fit: cover !important;
   }
-  .hero-video:-webkit-full-screen {
+  .hero-video:-webkit-full-screen, .fullscreen-video:-webkit-full-screen {
     object-fit: cover !important;
   }
-  .hero-video:-moz-full-screen {
+  .hero-video:-moz-full-screen, .fullscreen-video:-moz-full-screen {
     object-fit: cover !important;
   }
-  .hero-video:-ms-fullscreen {
+  .hero-video:-ms-fullscreen, .fullscreen-video:-ms-fullscreen {
     object-fit: cover !important;
   }
+}
+
+/* ─── Custom Fullscreen Overlay ───────────────────────────────────────────── */
+#custom-fullscreen-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  z-index: 99999;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+#custom-fullscreen-overlay.is-open {
+  display: flex;
+  opacity: 1;
+}
+
+#fullscreen-video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+#custom-fullscreen-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(15, 15, 15, 0.55);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+  z-index: 100000;
+}
+
+#custom-fullscreen-close:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: scale(1.1);
+}
+
+/* Lock body scroll when overlay is open */
+body.fullscreen-open {
+  overflow: hidden;
+  touch-action: none;
 }
 
 /* Hero controls — positioned inside bottom right corner of the video frame */
@@ -448,14 +506,31 @@ h1, h2, h3 {
   padding: 8rem 5vw;
 }
 
+.press-container {
+  position: relative;
+}
+
+/* ─── Recognition Carousel (Desktop) ──────────────────────────────────────── */
 .press-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 2rem;
-  margin-top: 4rem;
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 2.5rem;
+  padding: 3rem 0 2rem;
+  scrollbar-width: none;
+  /* Show 3 cards: each card takes ~30vw, plus gap, centered by padding */
+  scroll-padding: 0 calc((100% - 30vw) / 2);
+}
+
+.press-grid::-webkit-scrollbar {
+  display: none;
 }
 
 .press-item {
+  flex: 0 0 30vw;
+  min-width: 260px;
+  max-width: 420px;
+  scroll-snap-align: center;
   background: rgba(255, 255, 255, 0.02);
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
@@ -463,14 +538,31 @@ h1, h2, h3 {
   padding: 4rem 3rem;
   text-decoration: none;
   color: inherit;
-  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+              background 0.5s ease,
+              border-color 0.5s ease,
+              box-shadow 0.5s ease;
   display: flex;
   flex-direction: column;
   justify-content: center;
   border-radius: 24px;
   position: relative;
   overflow: hidden;
+  /* Default: non-center cards are slightly shrunk */
+  transform: scale(0.88);
 }
+
+/* The centered (active) card pops up — driven by JS adding .is-center */
+.press-item.is-center {
+  transform: scale(1.0);
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(212, 255, 0, 0.35);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+  z-index: 2;
+}
+
+
+
 
 .press-item::before {
   content: '';
@@ -481,16 +573,65 @@ h1, h2, h3 {
   transition: opacity 0.6s ease;
 }
 
-.press-item:hover {
-  background: rgba(255, 255, 255, 0.04);
-  border-color: rgba(212, 255, 0, 0.4);
-  transform: translateY(-15px) scale(1.02);
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
-}
-
+.press-item.is-center::before,
 .press-item:hover::before {
   opacity: 1;
 }
+
+.press-item:hover {
+  transform: scale(1.03);
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(212, 255, 0, 0.4);
+}
+
+.press-item.is-center:hover {
+  transform: scale(1.04);
+}
+
+/* Recognition nav arrows (desktop) */
+.rec-nav-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(15, 15, 15, 0.55);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.85);
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+  z-index: 10;
+}
+
+.rec-nav-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.rec-prev {
+  left: -24px;
+}
+
+.rec-next {
+  right: -24px;
+}
+
+/* Short Film grid: show full grid on desktop, hide mobile single card */
+.mobile-shortfilm-single {
+  display: none;
+}
+
+.desktop-shortfilm-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 3rem;
+}
+
 
 .press-source {
   font-family: var(--font-main);
@@ -1155,8 +1296,16 @@ h1, h2, h3 {
 
   .press-item {
     flex: 0 0 85vw;
+    min-width: unset;
+    max-width: unset;
     scroll-snap-align: center;
+    transform: scale(1);
   }
+
+  .press-item.is-center { transform: scale(1); box-shadow: none; }
+  .rec-nav-btn { display: none; }
+  .mobile-shortfilm-single { display: grid; }
+  .desktop-shortfilm-grid { display: none; }
 
   .break-caption {
     position: relative;

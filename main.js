@@ -176,72 +176,58 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // -- Fullscreen --
-  if (heroVideo && heroFullscreenBtn) {
-    heroFullscreenBtn.addEventListener('click', () => {
-      const originalSrc = heroVideo.src;
-      const originalMuted = heroVideo.muted;
-      const originalLoop = heroVideo.loop;
+  // -- Fullscreen Overlay (custom, works on all devices incl. iOS) --
+  const fsOverlay    = document.getElementById('custom-fullscreen-overlay');
+  const fsVideo      = document.getElementById('fullscreen-video');
+  const fsCloseBtn   = document.getElementById('custom-fullscreen-close');
 
-      // Swap to fullscreen video (desktop version)
-      heroVideo.src = desktopVideo;
-      heroVideo.load();
-      heroVideo.loop = true; // both background & fullscreen play in loop
-      heroVideo.muted = isManuallyMuted; // play audio automatically except when manually muted
-
-      // Enter fullscreen (iOS Safari uses webkitEnterFullscreen on video element)
-      const requestFS = heroVideo.requestFullscreen
-        || heroVideo.webkitRequestFullscreen
-        || heroVideo.webkitEnterFullscreen
-        || heroVideo.mozRequestFullScreen
-        || heroVideo.msRequestFullscreen;
-      if (requestFS) requestFS.call(heroVideo);
-
-      function exitFullscreenHandler() {
-        // Restore original video src and state
-        heroVideo.src = originalSrc;
-        heroVideo.load();
-        heroVideo.loop = originalLoop;
-        heroVideo.muted = originalMuted;
-
-        // Re-sync mute UI
-        if (heroVideo.muted) {
-          iconMuted.style.display = '';
-          iconUnmuted.style.display = 'none';
-          if (heroUnmuteBtn) heroUnmuteBtn.setAttribute('data-cursor', 'SOUND');
-        } else {
-          iconMuted.style.display = 'none';
-          iconUnmuted.style.display = '';
-          if (heroUnmuteBtn) heroUnmuteBtn.setAttribute('data-cursor', 'MUTE');
-        }
-
-        heroVideo.play().catch(e => console.log('Restore play failed:', e));
-
-        const heroSec = document.getElementById('hero');
-        if (heroSec) heroSec.scrollIntoView({ behavior: 'smooth' });
-
-        document.removeEventListener('fullscreenchange', onFSChange);
-        document.removeEventListener('webkitfullscreenchange', onFSChange);
-        heroVideo.removeEventListener('webkitendfullscreen', exitFullscreenHandler);
-      }
-
-      function onFSChange() {
-        const fsEl = document.fullscreenElement
-          || document.webkitFullscreenElement
-          || document.mozFullScreenElement
-          || document.msFullscreenElement;
-        if (!fsEl) {
-          exitFullscreenHandler();
-        }
-      }
-
-      document.addEventListener('fullscreenchange', onFSChange);
-      document.addEventListener('webkitfullscreenchange', onFSChange);
-      heroVideo.addEventListener('webkitendfullscreen', exitFullscreenHandler);
-
-      heroVideo.play().catch(e => console.log('Fullscreen play blocked:', e));
-    });
+  // Pre-load the desktop video into the hidden overlay player
+  if (fsVideo) {
+    fsVideo.src = desktopVideo;
+    fsVideo.load();
   }
+
+  function openFullscreenOverlay() {
+    if (!fsOverlay || !fsVideo) return;
+
+    fsVideo.muted  = isManuallyMuted;
+    fsVideo.loop   = true;
+    fsVideo.currentTime = 0;
+
+    // Show overlay
+    fsOverlay.style.display = 'flex';
+    // Force reflow so the transition fires
+    fsOverlay.offsetHeight; // eslint-disable-line no-unused-expressions
+    fsOverlay.classList.add('is-open');
+    document.body.classList.add('fullscreen-open');
+
+    fsVideo.play().catch(e => console.log('Fullscreen play blocked:', e));
+  }
+
+  function closeFullscreenOverlay() {
+    if (!fsOverlay || !fsVideo) return;
+    fsOverlay.classList.remove('is-open');
+    document.body.classList.remove('fullscreen-open');
+
+    fsVideo.pause();
+    fsVideo.currentTime = 0;
+
+    // Hide after transition
+    setTimeout(() => { fsOverlay.style.display = 'none'; }, 260);
+  }
+
+  if (heroFullscreenBtn) {
+    heroFullscreenBtn.addEventListener('click', openFullscreenOverlay);
+  }
+
+  if (fsCloseBtn) {
+    fsCloseBtn.addEventListener('click', closeFullscreenOverlay);
+  }
+
+  // Also close on Escape key
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeFullscreenOverlay();
+  });
 
   // 5. Slider Indicator Sync & Navigation
   const setupSliderSync = (slider, indicatorSpans) => {
@@ -343,6 +329,42 @@ document.addEventListener("DOMContentLoaded", () => {
   const pressSlider = document.querySelector('.press-grid');
   const pressIndicators = document.querySelectorAll('.recognition-indicator span');
   setupSliderSync(pressSlider, pressIndicators);
+
+  // Recognition carousel: highlight center card + nav arrows
+  if (pressSlider) {
+    const pressItems = pressSlider.querySelectorAll('.press-item');
+
+    const updateCenterCard = () => {
+      const sliderRect = pressSlider.getBoundingClientRect();
+      const sliderCenter = sliderRect.left + sliderRect.width / 2;
+      let closest = null;
+      let closestDist = Infinity;
+      pressItems.forEach(item => {
+        const itemRect = item.getBoundingClientRect();
+        const itemCenter = itemRect.left + itemRect.width / 2;
+        const dist = Math.abs(itemCenter - sliderCenter);
+        if (dist < closestDist) { closestDist = dist; closest = item; }
+      });
+      pressItems.forEach(item => item.classList.remove('is-center'));
+      if (closest) closest.classList.add('is-center');
+    };
+
+    pressSlider.addEventListener('scroll', updateCenterCard, { passive: true });
+    // Init on load and after a brief delay for layout
+    updateCenterCard();
+    setTimeout(updateCenterCard, 300);
+
+    // Nav arrows
+    const recPrev = document.querySelector('.rec-prev');
+    const recNext = document.querySelector('.rec-next');
+    if (recPrev) recPrev.addEventListener('click', () => {
+      pressSlider.scrollBy({ left: -(pressSlider.clientWidth * 0.35), behavior: 'smooth' });
+    });
+    if (recNext) recNext.addEventListener('click', () => {
+      pressSlider.scrollBy({ left: pressSlider.clientWidth * 0.35, behavior: 'smooth' });
+    });
+  }
+
 
   // 6. BTS Slider Active State (Intersection Observer)
   const btsSlider = document.querySelector('.bts-slider');

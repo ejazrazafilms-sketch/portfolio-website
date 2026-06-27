@@ -397,7 +397,15 @@ body.fullscreen-open {
   opacity: 0.8;
 }
 
+.about-main-layout {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+}
+
 .about-slider {
+  flex: 1;
+  min-width: 0;
   display: flex;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
@@ -440,12 +448,16 @@ body.fullscreen-open {
 }
 
 @media (max-width: 900px) {
+  .about-main-layout {
+    flex-direction: column;
+    gap: 2.5rem;
+  }
   .about-pane.has-image {
     flex-direction: column;
     gap: 0;
   }
   .about-pane-text {
-    margin-bottom: 2rem;
+    margin-bottom: 0;
   }
   .about-pane-image {
     flex: none;

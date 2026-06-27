@@ -294,13 +294,17 @@ document.addEventListener("DOMContentLoaded", () => {
         prevBtn.style.visibility = 'hidden';
       }
 
-      // Smooth transition for headshot to disappear
+      // Smooth transition for headshot to disappear (desktop only)
       if (aboutImage) {
-        const slideWidth = aboutSlider.clientWidth;
-        let opacity = 1 - (aboutSlider.scrollLeft / (slideWidth * 0.6)); // Fade out slightly faster
-        if (opacity < 0) opacity = 0;
-        if (opacity > 1) opacity = 1;
-        aboutImage.style.opacity = opacity;
+        if (window.innerWidth <= 900) {
+          aboutImage.style.opacity = '1';
+        } else {
+          const slideWidth = aboutSlider.clientWidth;
+          let opacity = 1 - (aboutSlider.scrollLeft / (slideWidth * 0.6)); // Fade out slightly faster
+          if (opacity < 0) opacity = 0;
+          if (opacity > 1) opacity = 1;
+          aboutImage.style.opacity = opacity;
+        }
         
         // Removed parallax translateX to prevent the next slide's text from overlaying the image
         aboutImage.style.transform = `translateX(0px)`;

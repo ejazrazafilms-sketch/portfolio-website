@@ -637,16 +637,7 @@ body.fullscreen-open {
   right: -24px;
 }
 
-/* Short Film grid: show full grid on desktop, hide mobile single card */
-.mobile-shortfilm-single {
-  display: none;
-}
 
-.desktop-shortfilm-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 3rem;
-}
 
 
 .press-source {
@@ -1320,8 +1311,7 @@ body.fullscreen-open {
 
   .press-item.is-center { transform: scale(1); box-shadow: none; }
   .rec-nav-btn { display: none; }
-  .mobile-shortfilm-single { display: grid; }
-  .desktop-shortfilm-grid { display: none; }
+
 
   .break-caption {
     position: relative;

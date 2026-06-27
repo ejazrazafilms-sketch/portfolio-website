@@ -451,6 +451,10 @@ body.fullscreen-open {
   .about-main-layout {
     flex-direction: column;
     gap: 2.5rem;
+    align-items: stretch;
+  }
+  .about-slider {
+    width: 100%;
   }
   .about-pane.has-image {
     flex-direction: column;

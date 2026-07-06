@@ -1014,22 +1014,28 @@ body.fullscreen-open {
 
 .btn-outline {
   display: inline-block;
-  padding: 1.5rem 4rem;
-  font-size: 1.2rem;
+  padding: 1.2rem 3rem;
+  font-size: 1.1rem;
   text-decoration: none;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  background: transparent;
-  border: 1px solid var(--secondary);
-  color: var(--secondary);
-  transition: all 0.3s;
+  text-transform: none;
+  letter-spacing: 0.04em;
+  background: rgba(255, 255, 255, 0.06);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(204, 255, 0, 0.2);
+  border-radius: 50px;
+  color: #fff;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3), inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   cursor: none;
 }
 
 .btn-outline:hover {
-  background: var(--secondary);
-  color: var(--bg);
-  box-shadow: 0 0 20px rgba(160, 160, 160, 0.4);
+  background: rgba(204, 255, 0, 0.1);
+  border-color: rgba(204, 255, 0, 0.5);
+  color: var(--accent);
+  box-shadow: 0 8px 40px rgba(204, 255, 0, 0.15), inset 0 0 0 1px rgba(204, 255, 0, 0.1);
+  transform: translateY(-3px);
 }
 
 /* Work Page Specifics */

@@ -1183,14 +1183,15 @@ body.fullscreen-open {
 }
 
 .work-item.wide .image-wrapper {
-  aspect-ratio: 16 / 7;
+  aspect-ratio: 16 / 9;
   height: auto;
 }
 
 /* Bigger slides for My Projects and Commercial Collaborations */
 .my-projects-slide .work-item.wide .image-wrapper,
 #commercial .work-item.wide .image-wrapper {
-  aspect-ratio: 16 / 7;
+  aspect-ratio: 3 / 2;
+  min-height: 500px;
   height: auto;
 }
 

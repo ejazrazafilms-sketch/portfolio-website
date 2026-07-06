@@ -18,11 +18,9 @@ npm run dev
 ```
 
 ## Structure
-- `index.html`: Main landing page featuring hero section, about, and press recognition.
-- `work.html`: Portfolio gallery with a focus on director reels and on-set photography.
-- `commercial.html`: Curated commercial TVC projects.
+- `index.html`: Main portfolio website featuring the hero section, about, recognition, film work, and commercial collaborations.
 - `style.css`: All site styles, tokens, and responsive logic.
-- `main.js`: Interactive logic for the cursor, loaders, and slider synchronization.
+- `main.js`: Interactive logic for the custom cursor, video playing, and slider synchronization.
 
 ## License
 This project is open-source and available under the MIT License.

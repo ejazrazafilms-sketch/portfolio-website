@@ -247,70 +247,101 @@
       
       <div class="about-container">
         <!-- My Projects Section -->
-      <section id="my-projects" class="work-section">
-        <h2 class="section-title">My Projects</h2>
-        <div class="work-grid">
-          <a href="https://www.youtube.com/watch?v=i4ihVQwOdDw&t=6s" target="_blank" class="work-item wide hover-target" data-cursor="PLAY">
-            <div class="image-wrapper">
-              <div class="poster" style="background-image: url('./assets/images/posters/ambience-poster.jpg');"></div>
-            </div>
-            <div class="item-info-static">
-              <h3>Surfers of Silver Linings</h3>
-              <span>Best Documentary Award • NASFF 2022</span>
-            </div>
-          </a>
+        <section id="my-projects" class="work-section" style="position: relative;">
+          <!-- Navigation Arrows (Desktop Only) -->
+          <button class="my-projects-nav-btn prev-btn hover-target" data-cursor="BACK" aria-label="Previous Project">
+            <svg viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+          </button>
+          <button class="my-projects-nav-btn next-btn hover-target" data-cursor="NEXT" aria-label="Next Project">
+            <svg viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+          </button>
 
-          <a href="https://youtu.be/gCiyeSb2MAI?si=LxPT6jaIJcXh0jsN" target="_blank" class="work-item wide hover-target" data-cursor="PLAY">
-            <div class="image-wrapper">
-              <div class="poster" style="background-image: url('./assets/images/posters/Untitled design-1.png'); background-size: contain; background-repeat: no-repeat; background-color: #000;"></div>
+          <h2 class="section-title">My Projects</h2>
+          <div class="my-projects-slider">
+            
+            <div class="my-projects-slide">
+              <a href="https://www.youtube.com/watch?v=i4ihVQwOdDw&t=6s" target="_blank" class="work-item wide hover-target" data-cursor="PLAY">
+                <div class="image-wrapper">
+                  <div class="poster" style="background-image: url('./assets/images/posters/ambience-poster.jpg');"></div>
+                </div>
+                <div class="item-info-static">
+                  <h3>Surfers of Silver Linings</h3>
+                  <span>Best Documentary Award • NASFF 2022</span>
+                </div>
+              </a>
             </div>
-            <div class="item-info-static">
-              <h3>UNDO</h3>
-              <span>Shortfilm • Directed by Syed Ejaz Raza Naqvi</span>
-            </div>
-          </a>
 
-          <a href="https://www.youtube.com/watch?v=jKsL3O0r0-Q" target="_blank" class="work-item wide hover-target" data-cursor="PLAY">
-            <div class="image-wrapper">
-              <div class="poster" style="background-image: url('./assets/images/posters/Untitled design-2-1.png'); background-size: 105% auto; background-position: center top;"></div>
+            <div class="my-projects-slide">
+              <a href="https://youtu.be/gCiyeSb2MAI?si=LxPT6jaIJcXh0jsN" target="_blank" class="work-item wide hover-target" data-cursor="PLAY">
+                <div class="image-wrapper">
+                  <div class="poster" style="background-image: url('./assets/images/posters/Untitled design-1.png'); background-size: contain; background-repeat: no-repeat; background-color: #000;"></div>
+                </div>
+                <div class="item-info-static">
+                  <h3>UNDO</h3>
+                  <span>Shortfilm • Directed by Syed Ejaz Raza Naqvi</span>
+                </div>
+              </a>
             </div>
-            <div class="item-info-static">
-              <h3>Forgotten</h3>
-              <span>Short Film • Directed by Syed Ejaz Raza Naqvi</span>
-            </div>
-          </a>
 
-          <a href="https://www.youtube.com/watch?v=tgIXg2tAob4&t=1s" target="_blank" class="work-item wide hover-target" data-cursor="PLAY">
-            <div class="image-wrapper">
-              <div class="poster" style="background-image: url('./assets/images/posters/Screenshot 2026-04-17 at 11.33.49 AM.png'); background-size: 135% auto; background-position: center 50%;"></div>
+            <div class="my-projects-slide">
+              <a href="https://www.youtube.com/watch?v=jKsL3O0r0-Q" target="_blank" class="work-item wide hover-target" data-cursor="PLAY">
+                <div class="image-wrapper">
+                  <div class="poster" style="background-image: url('./assets/images/posters/Untitled design-2-1.png'); background-size: 105% auto; background-position: center top;"></div>
+                </div>
+                <div class="item-info-static">
+                  <h3>Forgotten</h3>
+                  <span>Short Film • Directed by Syed Ejaz Raza Naqvi</span>
+                </div>
+              </a>
             </div>
-            <div class="item-info-static">
-              <h3>Joel The Showman</h3>
-              <span>Short Documentary • Directed by Syed Ejaz Raza Naqvi</span>
-            </div>
-          </a>
 
-          <a href="https://youtu.be/h2oxxCbS3FM?si=oeqbb5ht1DbMJmBu" target="_blank" class="work-item wide hover-target" data-cursor="PLAY">
-            <div class="image-wrapper">
-              <div class="poster" style="background-image: url('./assets/images/posters/Screenshot 2026-04-18 at 7.10.37 PM.png'); background-size: 115% auto; background-position: center 38%;"></div>
+            <div class="my-projects-slide">
+              <a href="https://www.youtube.com/watch?v=tgIXg2tAob4&t=1s" target="_blank" class="work-item wide hover-target" data-cursor="PLAY">
+                <div class="image-wrapper">
+                  <div class="poster" style="background-image: url('./assets/images/posters/Screenshot 2026-04-17 at 11.33.49 AM.png'); background-size: 135% auto; background-position: center 50%;"></div>
+                </div>
+                <div class="item-info-static">
+                  <h3>Joel The Showman</h3>
+                  <span>Short Documentary • Directed by Syed Ejaz Raza Naqvi</span>
+                </div>
+              </a>
             </div>
-            <div class="item-info-static">
-              <h3>Thread</h3>
-              <span>Cinematic Montage • Directed by Syed Ejaz Raza Naqvi</span>
-            </div>
-          </a>
 
-          <a href="https://youtu.be/x0_eVVzmi7k" target="_blank" class="work-item wide hover-target" data-cursor="PLAY">
-            <div class="image-wrapper">
-              <div class="poster" style="background-image: url('./assets/images/posters/Screenshot 2026-04-18 at 7.17.52 PM.png'); background-size: 115% auto; background-position: center 33%;"></div>
+            <div class="my-projects-slide">
+              <a href="https://youtu.be/h2oxxCbS3FM?si=oeqbb5ht1DbMJmBu" target="_blank" class="work-item wide hover-target" data-cursor="PLAY">
+                <div class="image-wrapper">
+                  <div class="poster" style="background-image: url('./assets/images/posters/Screenshot 2026-04-18 at 7.10.37 PM.png'); background-size: 115% auto; background-position: center 38%;"></div>
+                </div>
+                <div class="item-info-static">
+                  <h3>Thread</h3>
+                  <span>Cinematic Montage • Directed by Syed Ejaz Raza Naqvi</span>
+                </div>
+              </a>
             </div>
-            <div class="item-info-static">
-              <h3>Sisyphus</h3>
-              <span>Musical Shortfilm • Directed by Syed Ejaz Raza Naqvi</span>
+
+            <div class="my-projects-slide">
+              <a href="https://youtu.be/x0_eVVzmi7k" target="_blank" class="work-item wide hover-target" data-cursor="PLAY">
+                <div class="image-wrapper">
+                  <div class="poster" style="background-image: url('./assets/images/posters/Screenshot 2026-04-18 at 7.17.52 PM.png'); background-size: 115% auto; background-position: center 33%;"></div>
+                </div>
+                <div class="item-info-static">
+                  <h3>Sisyphus</h3>
+                  <span>Musical Shortfilm • Directed by Syed Ejaz Raza Naqvi</span>
+                </div>
+              </a>
             </div>
-          </a>
-        </div>
-      </section>
+
+          </div>
+
+          <div class="slider-indicator myprojects-indicator">
+            <span class="active"></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </section>
 
       <!-- Short Film Collaborations Section -->
       <section id="short-films" class="work-section">
@@ -475,16 +506,83 @@
       </section>
 
       <!-- Commercial Collaborations Section -->
-      <section id="commercial-preview" class="work-section">
+      <section id="commercial" class="work-section">
         <h2 class="section-title">Commercial Collaborations</h2>
         <div class="work-grid">
-          <a href="commercial.html" class="work-item wide hover-target" data-cursor="VIEW ALL">
-            <div class="image-wrapper">
-              <div class="poster" style="background-image: url('./assets/images/commercials/Screenshot 2026-04-17 at 1.57.09 AM.png'); background-size: 180% auto; background-position: center center;"></div>
+          <!-- Project 1 (National Biryani) -->
+          <a href="https://www.youtube.com/watch?v=oFEa_X5Ryvk&t=1s" target="_blank" class="work-item wide hover-target" data-cursor="PLAY">
+            <div class="image-wrapper" style="background-color: #222;">
+              <div class="poster" style="background-image: url('./assets/images/commercials/Screenshot 2026-04-17 at 1.47.09 AM.png'); background-size: cover; background-position: center;"></div>
             </div>
-            <div class="item-info-static" style="padding: 2rem 0;">
-              <h3>Commercial Collaborations</h3>
-              <span>Associate / Assistant Director • Ambience Films Portfolio</span>
+            <div class="item-info-static">
+              <h3>National Biryani</h3>
+              <span>Commercial TVC • Associate Director</span>
+            </div>
+          </a>
+
+          <!-- Project 2 (HSY) -->
+          <a href="https://www.youtube.com/watch?v=3EKIibVmh_c&list=PLaO1ESmCHZEIKCCcITRJmyVEKsjrmGnVs&index=3" target="_blank" class="work-item wide hover-target" data-cursor="PLAY">
+            <div class="image-wrapper" style="background-color: #222;">
+              <div class="poster" style="background-image: url('./assets/images/commercials/Screenshot 2026-04-17 at 1.48.15 AM.png'); background-size: cover; background-position: center;"></div>
+            </div>
+            <div class="item-info-static">
+              <h3>HSY DVC</h3>
+              <span>Digital Video Commercial • Assistant Director</span>
+            </div>
+          </a>
+
+          <!-- Project 3 (Faysal Bank) -->
+          <a href="https://www.youtube.com/watch?v=OM1rwxnezvs" target="_blank" class="work-item wide hover-target" data-cursor="PLAY">
+            <div class="image-wrapper" style="background-color: #222;">
+              <div class="poster" style="background-image: url('./assets/images/commercials/Screenshot 2026-04-17 at 1.49.14 AM.png'); background-size: cover; background-position: center;"></div>
+            </div>
+            <div class="item-info-static">
+              <h3>Faysal Bank</h3>
+              <span>TV Commercial • Associate Director</span>
+            </div>
+          </a>
+
+          <!-- Project 4 (Sunsilk) -->
+          <a href="https://www.youtube.com/watch?v=UDTbKvE3cpk" target="_blank" class="work-item wide hover-target" data-cursor="PLAY">
+            <div class="image-wrapper" style="background-color: #222;">
+              <div class="poster" style="background-image: url('./assets/images/commercials/sunsilk-hq.jpg'); background-size: cover; background-position: center;"></div>
+            </div>
+            <div class="item-info-static">
+              <h3>Sunsilk</h3>
+              <span>Commercial TVC • Associate Director</span>
+            </div>
+          </a>
+
+          <!-- Shiro Campaign Project 1 -->
+          <a href="https://www.youtube.com/watch?v=gaN8RtpfHnA" target="_blank" class="work-item wide hover-target" data-cursor="PLAY">
+            <div class="image-wrapper" style="background-color: #111;">
+              <div class="poster" style="background-image: url('./assets/images/commercials/Screenshot 2026-05-08 at 3.26.48 PM.png'); background-size: cover; background-position: center;"></div>
+            </div>
+            <div class="item-info-static">
+              <h3>Shiro TVC - I</h3>
+              <span>Commercial TVC • Associate Director</span>
+            </div>
+          </a>
+
+          <!-- Shiro Campaign Project 2 -->
+          <a href="https://www.youtube.com/watch?v=j7cbfA7jdzs" target="_blank" class="work-item wide hover-target" data-cursor="PLAY">
+            <div class="image-wrapper" style="background-color: #111;">
+              <div class="poster" style="background-image: url('./assets/images/commercials/Screenshot 2026-04-17 at 1.58.11 AM.png'); background-size: cover; background-position: center;"></div>
+            </div>
+            <div class="item-info-static">
+              <h3>Shiro TVC - II</h3>
+              <span>Commercial TVC • Associate Director</span>
+            </div>
+          </a>
+
+          <!-- Shiro Campaign Project 3 -->
+          <a href="https://www.youtube.com/watch?v=JdtkEyUYBig" target="_blank" class="work-item wide hover-target" data-cursor="PLAY">
+            <div class="image-wrapper" style="background-color: #111;">
+              <div class="poster" style="background-image: url('./assets/images/commercials/Screenshot 2026-04-17 at 1.59.27 AM.png'); background-size: cover; background-position: center;"></div>
+            </div>
+            <div class="item-info-static">
+              <h3>Shiro TVC - III</h3>
+              <span>Commercial TVC • Associate Director</span>
             </div>
           </a>
         </div>

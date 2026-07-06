@@ -5,9 +5,7 @@ export default defineConfig({
   build: {
     rollupOptions: {
       input: {
-        main: resolve('index.html'),
-        work: resolve('work.html'),
-        commercial: resolve('commercial.html')
+        main: resolve('index.html')
       }
     }
   }

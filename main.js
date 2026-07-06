@@ -326,6 +326,36 @@ document.addEventListener("DOMContentLoaded", () => {
   const shortFilmsIndicators = document.querySelectorAll('.shortfilms-indicator span');
   setupSliderSync(shortFilmsSlider, shortFilmsIndicators);
 
+  // My Projects Slider
+  const myProjectsSlider = document.querySelector('.my-projects-slider');
+  const myProjectsIndicators = document.querySelectorAll('.myprojects-indicator span');
+  setupSliderSync(myProjectsSlider, myProjectsIndicators);
+
+  (() => {
+    const slider = myProjectsSlider;
+    if (!slider) return;
+    const prevBtn = document.querySelector('#my-projects .prev-btn');
+    const nextBtn = document.querySelector('#my-projects .next-btn');
+    const dots = myProjectsIndicators;
+    if (!prevBtn || !nextBtn) return;
+
+    const updateArrows = () => {
+      const scrollPct = slider.scrollLeft / (slider.scrollWidth - slider.clientWidth);
+      const idx = Math.round(scrollPct * (dots.length - 1));
+      nextBtn.style.visibility = idx >= dots.length - 1 ? 'hidden' : 'visible';
+      prevBtn.style.visibility = idx > 0 ? 'visible' : 'hidden';
+    };
+
+    nextBtn.addEventListener('click', () => {
+      slider.scrollBy({ left: slider.clientWidth, behavior: 'smooth' });
+    });
+    prevBtn.addEventListener('click', () => {
+      slider.scrollBy({ left: -slider.clientWidth, behavior: 'smooth' });
+    });
+    slider.addEventListener('scroll', updateArrows, { passive: true });
+    updateArrows();
+  })();
+
   // Recognition carousel: highlight center card + nav arrows
   if (pressSlider) {
     const pressItems = pressSlider.querySelectorAll('.press-item');

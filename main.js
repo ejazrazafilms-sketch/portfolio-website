@@ -356,6 +356,36 @@ document.addEventListener("DOMContentLoaded", () => {
     updateArrows();
   })();
 
+  // Commercial Slider
+  const commercialSlider = document.querySelector('.commercial-slider');
+  const commercialIndicators = document.querySelectorAll('.commercial-indicator span');
+  setupSliderSync(commercialSlider, commercialIndicators);
+
+  (() => {
+    const slider = commercialSlider;
+    if (!slider) return;
+    const prevBtn = document.querySelector('#commercial .prev-btn');
+    const nextBtn = document.querySelector('#commercial .next-btn');
+    const dots = commercialIndicators;
+    if (!prevBtn || !nextBtn) return;
+
+    const updateArrows = () => {
+      const scrollPct = slider.scrollLeft / (slider.scrollWidth - slider.clientWidth);
+      const idx = Math.round(scrollPct * (dots.length - 1));
+      nextBtn.style.visibility = idx >= dots.length - 1 ? 'hidden' : 'visible';
+      prevBtn.style.visibility = idx > 0 ? 'visible' : 'hidden';
+    };
+
+    nextBtn.addEventListener('click', () => {
+      slider.scrollBy({ left: slider.clientWidth, behavior: 'smooth' });
+    });
+    prevBtn.addEventListener('click', () => {
+      slider.scrollBy({ left: -slider.clientWidth, behavior: 'smooth' });
+    });
+    slider.addEventListener('scroll', updateArrows, { passive: true });
+    updateArrows();
+  })();
+
   // Recognition carousel: highlight center card + nav arrows
   if (pressSlider) {
     const pressItems = pressSlider.querySelectorAll('.press-item');

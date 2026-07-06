@@ -1137,7 +1137,8 @@ body.fullscreen-open {
   background: var(--accent);
   color: var(--bg);
 }
-#my-projects:hover .my-projects-nav-btn {
+#my-projects:hover .my-projects-nav-btn,
+#commercial:hover .my-projects-nav-btn {
   opacity: 1;
   pointer-events: auto;
 }

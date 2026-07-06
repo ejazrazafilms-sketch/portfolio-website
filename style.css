@@ -1191,7 +1191,27 @@ body.fullscreen-open {
 .my-projects-slide .work-item.wide .image-wrapper,
 #commercial .work-item.wide .image-wrapper {
   aspect-ratio: unset;
-  height: 80vh;
+  height: 90vh;
+}
+
+#my-projects,
+#commercial {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+#my-projects .section-title,
+#commercial .section-title {
+  padding-left: 5vw;
+}
+
+.my-projects-slide .work-item.wide,
+#commercial .work-item.wide {
+  border-radius: 0;
+}
+
+#commercial .work-grid {
+  gap: 0.5rem;
 }
 
 .work-item:not(.wide) .image-wrapper {

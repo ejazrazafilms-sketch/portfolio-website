@@ -1190,9 +1190,8 @@ body.fullscreen-open {
 /* Bigger slides for My Projects and Commercial Collaborations */
 .my-projects-slide .work-item.wide .image-wrapper,
 #commercial .work-item.wide .image-wrapper {
-  aspect-ratio: 3 / 2;
-  min-height: 500px;
-  height: auto;
+  aspect-ratio: unset;
+  height: 80vh;
 }
 
 .work-item:not(.wide) .image-wrapper {

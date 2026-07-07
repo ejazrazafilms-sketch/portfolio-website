@@ -445,6 +445,12 @@ body.fullscreen-open {
   border-radius: 8px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.5);
   display: block;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.about-pane-image:hover img {
+  transform: scale(1.02) translateY(-4px) rotate(1deg);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.8);
 }
 
 @media (max-width: 900px) {

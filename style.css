@@ -1187,7 +1187,8 @@ body.fullscreen-open {
 
 /* Bigger slides for My Projects and Commercial Collaborations */
 .my-projects-slide .work-item.wide .image-wrapper,
-#commercial .my-projects-slide .work-item.wide .image-wrapper {
+#commercial .my-projects-slide .work-item.wide .image-wrapper,
+.showreel-slide.work-item.wide .image-wrapper {
   aspect-ratio: 16 / 9;
   height: auto;
   width: 100%;

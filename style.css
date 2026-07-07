@@ -1068,14 +1068,12 @@ body.fullscreen-open {
 .work-intro .giant-text {
   line-height: 0.9;
   letter-spacing: -0.02em;
-  background: linear-gradient(135deg, var(--accent) 0%, #ffffff 60%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: transparent;
+  -webkit-text-stroke: 2px rgba(255, 255, 255, 0.8);
 }
 
-.accent-text {
-  -webkit-text-fill-color: transparent;
+.work-intro .giant-text .accent-text {
+  -webkit-text-stroke: 2px var(--accent);
 }
 
 .page-header {

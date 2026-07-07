@@ -1044,7 +1044,27 @@ body.fullscreen-open {
   transform: translateY(-3px);
 }
 
-/* Removed old work-intro styles */
+/* Work Section Specifics */
+.work-watermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 15vw;
+  font-family: var(--font-serif);
+  font-weight: 900;
+  opacity: 0.03;
+  pointer-events: none;
+  text-transform: uppercase;
+  z-index: 0;
+  white-space: nowrap;
+}
+
+.work-header-container h2 {
+  position: relative;
+  z-index: 1;
+}
+
 .page-header {
   padding: 10rem 5vw 4rem;
   text-align: left;

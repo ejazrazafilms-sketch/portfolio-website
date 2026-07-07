@@ -449,7 +449,7 @@ body.fullscreen-open {
 }
 
 .about-pane-image:hover img {
-  transform: scale(1.02) translateY(-4px) rotate(1deg);
+  transform: scale(1.03);
   box-shadow: 0 15px 40px rgba(0,0,0,0.8);
 }
 

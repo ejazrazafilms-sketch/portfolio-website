@@ -1047,10 +1047,8 @@ body.fullscreen-open {
 /* Work Section Specifics */
 .work-watermark {
   position: absolute;
-  top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 15vw;
+  transform: translateX(-50%);
   font-family: var(--font-serif);
   font-weight: 900;
   opacity: 0.03;
@@ -1058,6 +1056,24 @@ body.fullscreen-open {
   text-transform: uppercase;
   z-index: 0;
   white-space: nowrap;
+}
+
+.work-watermark.top-watermark {
+  top: -15%;
+  opacity: 0.015;
+  font-size: 10vw;
+}
+
+.work-watermark.main-watermark {
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 15vw;
+}
+
+.work-watermark.bottom-watermark {
+  top: 105%;
+  opacity: 0.015;
+  font-size: 10vw;
 }
 
 .work-header-container h2 {

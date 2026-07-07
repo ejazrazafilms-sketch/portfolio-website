@@ -1105,7 +1105,8 @@ body.fullscreen-open {
   scroll-snap-align: center;
   position: relative;
 }
-.my-projects-slide .work-item.wide {
+.my-projects-slide .work-item.wide,
+.showreel-slide.work-item.wide {
   width: 100%;
   margin: 0;
 }
@@ -1195,7 +1196,8 @@ body.fullscreen-open {
 }
 
 #my-projects,
-#commercial {
+#commercial,
+#creative-showreel {
   padding-left: 0;
   padding-right: 0;
 }
@@ -1206,7 +1208,8 @@ body.fullscreen-open {
 }
 
 .my-projects-slide .work-item.wide,
-#commercial .work-item.wide {
+#commercial .work-item.wide,
+.showreel-slide.work-item.wide {
   border-radius: 0;
 }
 

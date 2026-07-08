@@ -403,16 +403,30 @@ body.fullscreen-open {
   gap: 4rem;
 }
 
-.about-grid {
+.about-slider {
   flex: 1;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2.5rem;
+  min-width: 0;
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none; /* Firefox */
+  gap: 2rem;
+}
+
+.about-slider::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
 }
 
 .about-pane {
+  flex: 0 0 100%;
+  scroll-snap-align: center;
+  padding-right: 2rem;
+}
+
+.about-pane.has-image {
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  gap: 4rem;
 }
 
 .about-pane-text {
@@ -445,9 +459,12 @@ body.fullscreen-open {
     gap: 2.5rem;
     align-items: stretch;
   }
-  .about-grid {
-    grid-template-columns: 1fr;
-    gap: 3rem;
+  .about-slider {
+    width: 100%;
+  }
+  .about-pane.has-image {
+    flex-direction: column;
+    gap: 0;
   }
   .about-pane-text {
     margin-bottom: 0;

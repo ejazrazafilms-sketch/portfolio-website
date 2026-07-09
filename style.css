@@ -881,19 +881,19 @@ body.fullscreen-open {
 
 .break-caption {
   position: absolute;
-  bottom: 8vh;
+  bottom: 3vh;
   left: 5vw;
-  max-width: 800px;
+  max-width: 550px;
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-left: 4px solid var(--accent);
-  padding: 2.5rem 3rem;
+  padding: 1.5rem 2rem;
   border-radius: 16px;
   font-family: var(--font-main);
-  font-size: 1.1rem;
-  line-height: 1.8;
+  font-size: 1rem;
+  line-height: 1.6;
   color: var(--text);
   font-weight: 400;
   z-index: 10;

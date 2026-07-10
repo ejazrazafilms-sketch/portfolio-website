@@ -1452,15 +1452,15 @@ body.fullscreen-open {
 
 
   .break-caption {
-    position: relative;
-    bottom: auto;
-    left: auto;
-    right: auto;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
     transform: none;
     max-width: 100%;
-    background: rgba(255, 255, 255, 0.03);
-    padding: 2rem 5vw;
-    font-size: 1rem;
+    background: rgba(0, 0, 0, 0.4); /* darker to ensure readability on small screen */
+    padding: 1.5rem 5vw;
+    font-size: 0.9rem;
     color: var(--text);
     text-shadow: none;
     border: none;
@@ -1470,6 +1470,14 @@ body.fullscreen-open {
     text-align: left;
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
+    transition: opacity 0.8s ease;
+    z-index: 10;
+  }
+  
+  .image-break:hover .break-caption,
+  .image-break:active .break-caption {
+    opacity: 0;
+    pointer-events: none;
   }
 
   .recognition-indicator {

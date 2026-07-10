@@ -1487,15 +1487,15 @@ body.fullscreen-open {
 
 
   .break-caption {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
+    position: relative;
+    bottom: auto;
+    left: auto;
+    right: auto;
     transform: none;
     max-width: 100%;
-    background: rgba(0, 0, 0, 0.4); /* darker to ensure readability on small screen */
-    padding: 1.5rem 5vw;
-    font-size: 0.9rem;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 2rem 5vw;
+    font-size: 1rem;
     color: var(--text);
     text-shadow: none;
     border: none;
@@ -1506,7 +1506,6 @@ body.fullscreen-open {
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
     transition: opacity 0.8s ease;
-    z-index: 10;
   }
   
   .image-break:hover .break-caption,

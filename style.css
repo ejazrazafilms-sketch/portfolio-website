@@ -881,16 +881,17 @@ body.fullscreen-open {
 
 .break-caption {
   position: absolute;
-  bottom: 3vh;
+  bottom: 0;
   left: 5vw;
   max-width: 550px;
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
   border: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: none;
   border-left: 4px solid var(--accent);
   padding: 1.5rem 2rem;
-  border-radius: 16px;
+  border-radius: 16px 16px 0 0;
   font-family: var(--font-main);
   font-size: 1rem;
   line-height: 1.6;
@@ -903,7 +904,6 @@ body.fullscreen-open {
 }
 
 .break-caption:hover {
-  transform: translateY(-8px);
   background: rgba(255, 255, 255, 0.08);
   border-color: rgba(204, 255, 0, 0.4);
 }

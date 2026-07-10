@@ -62,13 +62,7 @@
 
     <!-- Panel 2: About (Slider) -->
     <section id="about" class="panel about">
-      <!-- Navigation Arrows (Desktop Only) -->
-      <button class="about-nav-btn prev-btn hover-target" data-cursor="BACK">
-        <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
-      </button>
-      <button class="about-nav-btn next-btn hover-target" data-cursor="NEXT">
-        <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
-      </button>
+
 
       <div class="about-container">
         <h2 class="section-label">About</h2>
@@ -103,10 +97,20 @@
             <img src="./assets/images/HeadShot/18620BEC-B9FF-4801-8264-590C801910C0%202.jpg" alt="Ejaz Headshot">
           </div>
         </div>
-        <div class="slider-indicator">
-          <span class="active"></span>
-          <span></span>
-          <span></span>
+        <div class="slider-indicator-wrapper">
+          <button class="about-nav-btn prev-btn hover-target" data-cursor="BACK">
+            <svg viewBox="0 0 24 24"><path fill="currentColor" d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+          </button>
+          
+          <div class="slider-indicator">
+            <span class="active"></span>
+            <span></span>
+            <span></span>
+          </div>
+
+          <button class="about-nav-btn next-btn hover-target" data-cursor="NEXT">
+            <svg viewBox="0 0 24 24"><path fill="currentColor" d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+          </button>
         </div>
       </div>
     </section>
@@ -250,7 +254,7 @@
         <section id="creative-showreel" class="work-section" style="padding-top: 0; padding-bottom: 2rem;">
           <a href="https://youtu.be/IUhLhGOuLbU?si=VQieIXl6HVbokJXz" target="_blank" class="work-item wide hover-target showreel-slide" data-cursor="PLAY">
             <div class="image-wrapper" style="background-color: #111; position: relative;">
-              <div class="poster" style="background-image: url('./assets/images/posters/Screenshot 2026-07-10 at 5.49.06 PMc.jpg'); background-size: cover; background-position: center; opacity: 0.8;"></div>
+              <div class="poster" style="background-image: url('./assets/images/posters/Screenshot 2026-07-10 at 5.49.06 PMc.jpg'); background-size: cover; background-position: center 25%; opacity: 0.8;"></div>
             </div>
             <div class="item-info-static">
               <h3>Creative Showreel</h3>

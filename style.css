@@ -454,13 +454,28 @@ body.fullscreen-open {
 }
 
 @media (max-width: 900px) {
-  .about-main-layout {
+  .about-container {
+    display: flex;
     flex-direction: column;
-    gap: 2.5rem;
-    align-items: stretch;
+  }
+  .section-label {
+    order: 0;
+  }
+  .about-main-layout {
+    display: contents;
   }
   .about-slider {
+    order: 1;
     width: 100%;
+    margin-bottom: 1rem;
+  }
+  .slider-indicator-wrapper {
+    order: 2;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
   }
   .about-pane.has-image {
     flex-direction: column;
@@ -470,6 +485,7 @@ body.fullscreen-open {
     margin-bottom: 0;
   }
   .about-pane-image {
+    order: 3;
     flex: none;
     width: 100%;
     max-width: 250px;
@@ -819,8 +835,27 @@ body.fullscreen-open {
 
 @media (max-width: 900px) {
   .about-nav-btn {
-    display: none !important; /* Keep hidden on mobile to avoid touch overlap, use swipe instead */
+    position: static !important;
+    transform: none !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 40px !important;
+    height: 40px !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border-radius: 50% !important;
   }
+  .about-nav-btn svg {
+    width: 20px !important;
+    height: 20px !important;
+  }
+}
+
+.slider-indicator-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .slider-indicator span {

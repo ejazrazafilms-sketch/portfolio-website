@@ -845,6 +845,8 @@ body.fullscreen-open {
     background: rgba(255, 255, 255, 0.1) !important;
     border: 1px solid rgba(255, 255, 255, 0.2) !important;
     border-radius: 50% !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
   }
   .about-nav-btn svg {
     width: 20px !important;

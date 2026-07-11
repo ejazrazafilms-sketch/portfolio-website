@@ -808,8 +808,12 @@ body.fullscreen-open {
   transform: translateY(-5px) scale(1.1);
 }
 
-.next-btn { right: 2vw; }
-.prev-btn { left: 2vw; }
+.next-btn { 
+  right: calc(50% - 50vw + 2vw); 
+}
+.prev-btn { 
+  left: calc(50% - 50vw + 2vw); 
+}
 
 .panel.about:hover .about-nav-btn {
   opacity: 1;
@@ -829,8 +833,8 @@ body.fullscreen-open {
     border-color: var(--accent);
   }
   
-  .next-btn { right: 10px; }
-  .prev-btn { left: 10px; }
+  .next-btn { right: calc(50% - 50vw + 2vw); }
+  .prev-btn { left: calc(50% - 50vw + 2vw); }
 }
 
 @media (max-width: 900px) {

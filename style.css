@@ -922,33 +922,33 @@ body.fullscreen-open {
 
 .break-caption {
   position: absolute;
-  bottom: 4vh;
-  left: 0;
-  width: 100%;
-  max-width: none;
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-  border: none;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  bottom: 5vh;
+  left: 5vw;
+  width: auto;
+  max-width: 550px;
+  background: rgba(10, 10, 10, 0.4);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-left: 4px solid var(--accent);
-  padding: 1.5rem 5vw;
-  border-radius: 0;
+  padding: 2rem;
+  border-radius: 12px;
   font-family: var(--font-main);
-  font-size: 1rem;
+  font-size: 1.1rem;
   line-height: 1.6;
   color: var(--text);
-  font-weight: 400;
+  font-weight: 300;
   z-index: 10;
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
   transform: translateY(0);
-  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), background 0.5s ease, border-color 0.5s ease;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), background 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease;
 }
 
 .break-caption:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(204, 255, 0, 0.4);
+  background: rgba(30, 30, 30, 0.6);
+  border-color: rgba(204, 255, 0, 0.5);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+  transform: translateY(-5px);
 }
 
 /* Poster Collage */
@@ -1498,20 +1498,21 @@ body.fullscreen-open {
     left: auto;
     right: auto;
     transform: none;
-    max-width: 100%;
-    background: rgba(255, 255, 255, 0.03);
-    padding: 2rem 5vw;
-    font-size: 1rem;
+    width: calc(100% - 2rem);
+    margin: 1rem 1rem 2rem 1rem;
+    background: rgba(25, 25, 25, 0.6);
+    padding: 1.5rem;
+    font-size: 0.95rem;
     color: var(--text);
     text-shadow: none;
-    border: none;
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     border-left: 4px solid var(--accent);
-    border-radius: 0;
+    border-radius: 12px;
     text-align: left;
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
     transition: opacity 0.8s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
   }
   
   .image-break:hover .break-caption,

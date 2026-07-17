@@ -1374,6 +1374,8 @@ body.fullscreen-open {
   font-size: 1rem;
   line-height: 1.6;
   opacity: 0.8;
+}
+
 .work-item.wide .item-info-static {
   position: absolute;
   bottom: 2rem;

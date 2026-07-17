@@ -944,17 +944,16 @@ body.fullscreen-open {
 
 .break-caption {
   position: absolute;
-  bottom: 5vh;
+  bottom: 2rem;
   left: 5vw;
   width: auto;
-  max-width: 550px;
-  background: rgba(10, 10, 10, 0.4);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-left: 4px solid var(--accent);
-  padding: 2rem;
-  border-radius: 12px;
+  max-width: 90vw;
+  background: rgba(10, 10, 10, 0.6);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1.5rem 2rem;
+  border-radius: 8px;
   font-family: var(--font-main);
   font-size: 1.1rem;
   line-height: 1.6;

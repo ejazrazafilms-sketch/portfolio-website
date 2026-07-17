@@ -1379,13 +1379,22 @@ body.fullscreen-open {
   font-size: 1rem;
   line-height: 1.6;
   opacity: 0.8;
-}
-
 .work-item.wide .item-info-static {
-  padding: 2rem 5vw;
-  max-width: 1200px;
-  margin: 0 auto;
-  width: 100%;
+  position: absolute;
+  bottom: 2rem;
+  left: 5vw;
+  padding: 1.5rem 2rem;
+  margin: 0;
+  width: auto;
+  max-width: 90vw;
+  background: rgba(10, 10, 10, 0.6);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  z-index: 10;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  text-align: left;
 }
 
 /* BTS Section Styling */

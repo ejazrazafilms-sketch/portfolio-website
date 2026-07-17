@@ -208,6 +208,12 @@ h1, h2, h3 {
   padding: 6rem 5vw;
 }
 
+#about {
+  position: relative;
+  z-index: 9999;
+  background-color: var(--bg);
+}
+
 .panel.recognition-panel {
   padding: 1rem 5vw;
 }
@@ -1335,12 +1341,24 @@ body.fullscreen-open {
   padding-right: 0;
 }
 
+#short-films {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  padding-left: 5vw;
+  padding-right: 5vw;
+}
+
 #my-projects .section-title,
-#commercial .section-title {
+#commercial .section-title,
+#short-films .section-title {
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
   padding-left: 5vw;
+}
+
+#short-films .section-title {
+  padding-left: 0; /* Padding is handled by the section */
 }
 
 .my-projects-slide .work-item.wide,

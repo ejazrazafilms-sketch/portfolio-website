@@ -1173,11 +1173,12 @@ body.fullscreen-open {
 }
 
 .section-title {
-  font-size: 2rem;
-  margin-bottom: 3rem;
-  color: var(--accent);
+  font-size: 0.8rem;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.4em;
+  color: var(--accent);
+  margin-bottom: 2rem;
+  opacity: 0.8;
 }
 
 .work-grid {

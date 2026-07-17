@@ -1069,10 +1069,45 @@ body.fullscreen-open {
   align-items: center;
   text-align: center;
   padding: 8rem 5vw;
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.panel.contact .giant-text,
+.panel.contact h1,
+.panel.contact h2,
+.panel.contact h3 {
+  color: #000000;
 }
 
 .panel.contact .giant-text {
   margin-bottom: 3rem;
+}
+
+.panel.contact .btn-outline {
+  color: #000000;
+  border-color: rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05), inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+  background: transparent;
+}
+
+.panel.contact .btn-outline:hover {
+  background: rgba(0, 0, 0, 0.05);
+  border-color: #000000;
+  color: #000000;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.1);
+}
+
+.social-strip {
+  display: inline-flex;
+  gap: 3rem;
+  justify-content: center;
+  align-items: center;
+  margin-top: 4rem;
+  background-color: #111111;
+  padding: 1.5rem 4rem;
+  border-radius: 100px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
 }
 
 .btn-outline {
@@ -1271,12 +1306,17 @@ body.fullscreen-open {
 #my-projects,
 #commercial,
 #creative-showreel {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
   padding-left: 0;
   padding-right: 0;
 }
 
 #my-projects .section-title,
 #commercial .section-title {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
   padding-left: 5vw;
 }
 

@@ -1094,15 +1094,11 @@ body.fullscreen-open {
 }
 
 .social-strip {
-  display: inline-flex;
+  display: flex;
   gap: 3rem;
   justify-content: center;
   align-items: center;
   margin-top: 4rem;
-  background-color: #111111;
-  padding: 1.5rem 4rem;
-  border-radius: 100px;
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
 }
 
 .btn-outline {

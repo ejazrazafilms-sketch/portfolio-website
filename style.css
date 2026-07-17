@@ -1323,15 +1323,17 @@ body.fullscreen-open {
 
 #my-projects .section-title,
 #commercial .section-title,
-#short-films .section-title {
+#short-films .section-title,
+#creative-showreel .section-title {
   max-width: 1200px;
+  width: calc(100% - 10vw);
   margin-left: auto;
   margin-right: auto;
-  padding-left: 5vw;
+  padding-left: 0;
 }
 
 #short-films .section-title {
-  padding-left: 0; /* Padding is handled by the section */
+  width: 100%;
 }
 
 .my-projects-slide .work-item.wide,

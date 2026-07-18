@@ -952,17 +952,18 @@ body.fullscreen-open {
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 1.5rem 2rem;
+  padding: 0.8rem 1.2rem;
   border-radius: 8px;
   font-family: var(--font-main);
-  font-size: 1.1rem;
-  line-height: 1.6;
+  font-size: 0.85rem;
+  line-height: 1.4;
   color: var(--text);
   font-weight: 300;
   z-index: 10;
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
   transform: translateY(0);
   transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), background 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease;
+  white-space: nowrap;
 }
 
 .break-caption:hover {
@@ -1575,8 +1576,8 @@ body.fullscreen-open {
     width: calc(100% - 2rem);
     margin: 1rem 1rem 2rem 1rem;
     background: rgba(25, 25, 25, 0.6);
-    padding: 1.5rem;
-    font-size: 0.95rem;
+    padding: 1rem;
+    font-size: 0.75rem;
     color: var(--text);
     text-shadow: none;
     border: 1px solid rgba(255, 255, 255, 0.08);

@@ -945,9 +945,13 @@ body.fullscreen-open {
 .break-caption {
   position: absolute;
   bottom: 2rem;
-  left: 5vw;
-  width: auto;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: fit-content;
   max-width: 90vw;
+  text-align: center;
   background: rgba(10, 10, 10, 0.6);
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
@@ -1583,7 +1587,7 @@ body.fullscreen-open {
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-left: 4px solid var(--accent);
     border-radius: 12px;
-    text-align: left;
+    text-align: center;
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
     transition: opacity 0.8s ease;

@@ -1525,6 +1525,30 @@ body.fullscreen-open {
     height: auto;
   }
   
+  .work-item.wide .item-info-static {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 1rem 5vw;
+    background: #0a0a0a;
+    border: none;
+    border-radius: 0;
+    text-align: center;
+    box-shadow: none;
+  }
+  
+  .work-item.wide .item-info-static h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.25rem;
+  }
+  
+  .work-item.wide .item-info-static span {
+    font-size: 0.8rem;
+  }
+  
   .page-header {
     padding-top: 6rem;
   }

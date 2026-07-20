@@ -1616,6 +1616,7 @@ body.fullscreen-open {
     width: 90%;
     margin: 1rem auto 2rem auto;
     box-sizing: border-box;
+    white-space: normal;
     background: rgba(25, 25, 25, 0.6);
     padding: 1rem;
     font-size: 0.75rem;

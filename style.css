@@ -1518,7 +1518,7 @@ body.fullscreen-open {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-top: 0;
+    margin-top: -4rem;
   }
 
   .scattered-item {

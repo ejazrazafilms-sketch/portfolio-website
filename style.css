@@ -1501,12 +1501,12 @@ body.fullscreen-open {
   }
   
   .panel {
-    padding: 6rem 5vw !important;
+    padding: 3rem 5vw !important;
   }
   
   .panel.work-panel, .panel.press {
-    gap: 4rem;
-    padding: 4rem 5vw !important;
+    gap: 2rem;
+    padding: 2rem 5vw !important;
   }
 
   .scattered-item {
@@ -1550,14 +1550,14 @@ body.fullscreen-open {
   }
   
   .page-header {
-    padding-top: 6rem;
+    padding-top: 4rem;
   }
 
   .press-grid {
     display: flex;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
-    gap: 1.5rem;
+    gap: 1rem;
     padding-bottom: 2rem;
     scrollbar-width: none;
   }
@@ -1567,7 +1567,7 @@ body.fullscreen-open {
   }
 
   .press-item {
-    flex: 0 0 85vw;
+    flex: 0 0 90vw;
     min-width: unset;
     max-width: unset;
     scroll-snap-align: center;
@@ -1582,7 +1582,7 @@ body.fullscreen-open {
     display: flex;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
-    gap: 1.5rem;
+    gap: 1rem;
     padding-bottom: 2rem;
     scrollbar-width: none; /* Firefox */
   }
@@ -1590,7 +1590,7 @@ body.fullscreen-open {
     display: none; /* Chrome/Safari */
   }
   #short-films .work-item {
-    flex: 0 0 80vw;
+    flex: 0 0 90vw;
     scroll-snap-align: center;
   }
 

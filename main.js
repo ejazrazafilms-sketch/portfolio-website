@@ -77,17 +77,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
     hoverTargets.forEach(target => {
       target.addEventListener('mouseenter', () => {
-        cursor.classList.add('active');
-        if (target.classList.contains('image-break')) {
-          cursor.classList.add('small-play');
-        }
         let text = target.getAttribute('data-cursor');
-        if (text === 'PLAY') {
-          text = '▶'; // Show play symbol
-        }
-        if (text) {
+        const popActions = ['PLAY', 'BACK', 'NEXT', 'VIEW'];
+        
+        if (text && popActions.includes(text.toUpperCase())) {
+          cursor.classList.add('active');
+          if (target.classList.contains('image-break')) {
+            cursor.classList.add('small-play');
+          }
+          if (text === 'PLAY') {
+            text = '▶'; // Show play symbol
+          }
           cursorText.textContent = text;
         } else {
+          cursor.classList.remove('active');
           cursorText.textContent = '';
         }
       });

@@ -1582,7 +1582,7 @@ body.fullscreen-open {
   }
 
   .press-item {
-    flex: 0 0 90vw;
+    flex: 0 0 80vw;
     min-width: unset;
     max-width: unset;
     scroll-snap-align: center;

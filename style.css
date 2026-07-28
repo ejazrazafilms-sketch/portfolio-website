@@ -1552,8 +1552,8 @@ body.fullscreen-open {
     width: 100%;
     max-width: 100%;
     margin: 0;
-    padding: 1.5rem 5vw;
-    background: transparent;
+    padding: 2rem;
+    background: linear-gradient(to top, rgba(28, 28, 28, 0.95), transparent);
     border: none;
     border-radius: 0;
     text-align: left;
@@ -1570,7 +1570,6 @@ body.fullscreen-open {
     font-family: var(--font-serif);
     font-weight: normal;
     margin-bottom: 0.5rem;
-    color: var(--primary);
     text-transform: none !important;
   }
   

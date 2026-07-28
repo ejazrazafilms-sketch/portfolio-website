@@ -135,6 +135,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Touch support for mobile
     breakSection.addEventListener('touchstart', (e) => {
       if (nasffVideo.paused) {
+        nasffVideo.currentTime = 0;
         nasffVideo.play().catch(e => console.log("Touch-play blocked:", e));
       } else {
         nasffVideo.pause();

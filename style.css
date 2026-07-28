@@ -1568,7 +1568,6 @@ body.fullscreen-open {
   .work-item.wide .item-info-static h3 {
     font-size: 2rem;
     font-family: var(--font-serif);
-    font-weight: normal;
     margin-bottom: 0.5rem;
     text-transform: none !important;
   }

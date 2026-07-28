@@ -1600,6 +1600,15 @@ body.fullscreen-open {
     scroll-snap-align: center;
   }
 
+  /* Fix for documentary video in mobile */
+  .image-break {
+    aspect-ratio: 16 / 9;
+    height: auto;
+  }
+  
+  .break-video, .break-image {
+    object-fit: contain;
+  }
 
   .break-caption {
     position: relative;

@@ -1631,6 +1631,13 @@ body.fullscreen-open {
   .image-break {
     aspect-ratio: 16 / 9;
     height: auto;
+    width: 90vw;
+    margin: -3rem auto 4rem auto;
+    border-radius: 16px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    z-index: 10;
   }
   
   .break-video, .break-image {

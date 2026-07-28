@@ -501,11 +501,12 @@ body.fullscreen-open {
     margin-bottom: 0;
   }
   .about-pane-image {
-    order: 3;
-    flex: none;
-    width: 100%;
-    max-width: 250px;
-    align-self: center;
+    display: none !important;
+  }
+  .panel.about {
+    background-image: linear-gradient(rgba(28, 28, 28, 0.85), rgba(28, 28, 28, 0.95)), url('./assets/images/HeadShot/18620BEC-B9FF-4801-8264-590C801910C0%202.jpg');
+    background-size: cover;
+    background-position: center top;
   }
 }
 

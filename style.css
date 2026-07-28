@@ -1515,7 +1515,9 @@ body.fullscreen-open {
   }
 
   .panel.contact {
-    min-height: 100vh;
+    min-height: auto;
+    padding-top: 6rem;
+    padding-bottom: 2rem;
     display: flex;
     flex-direction: column;
     justify-content: center;

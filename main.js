@@ -118,7 +118,26 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
-  // 4. Video Hover Handling
+
+  // 3.1 Smart Sticky Header (Auto-Hide on Scroll Mobile)
+  let lastScrollY = window.scrollY;
+  const topNav = document.querySelector('.top-nav');
+  window.addEventListener('scroll', () => {
+    if (window.innerWidth <= 900 && topNav) {
+      const currentScrollY = window.scrollY;
+      if (currentScrollY > lastScrollY && currentScrollY > 80) {
+        // Scrolling down & past header height
+        topNav.classList.add('nav-hidden');
+      } else {
+        // Scrolling up or at the top
+        topNav.classList.remove('nav-hidden');
+      }
+      lastScrollY = currentScrollY;
+    } else if (topNav) {
+      topNav.classList.remove('nav-hidden'); // Ensure visible on desktop
+    }
+  }, { passive: true });
+    // 4. Video Hover Handling
   const breakSection = document.querySelector('.image-break');
   const nasffVideo = document.getElementById('nasff-video');
 

@@ -1507,6 +1507,13 @@ body.fullscreen-open {
     padding: 1rem 5vw !important;
   }
 
+  #my-projects,
+  #commercial,
+  #creative-showreel {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
   .panel.contact {
     min-height: 100vh;
     display: flex;

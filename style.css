@@ -1620,28 +1620,21 @@ body.fullscreen-open {
   }
 
   .break-caption {
-    position: relative;
-    bottom: auto;
-    left: auto;
-    right: auto;
-    transform: none;
+    position: absolute;
+    bottom: 1rem;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
     width: 90%;
-    margin: 1rem auto 2rem auto;
-    box-sizing: border-box;
     white-space: normal;
-    background: rgba(25, 25, 25, 0.6);
+    background: rgba(10, 10, 10, 0.6);
     padding: 1rem;
-    font-size: 0.75rem;
-    color: var(--text);
-    text-shadow: none;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-left: 4px solid var(--accent);
-    border-radius: 12px;
+    font-size: 0.8rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
     text-align: center;
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    transition: opacity 0.8s ease;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    box-sizing: border-box;
   }
   
   .image-break:hover .break-caption,

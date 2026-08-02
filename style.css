@@ -1256,7 +1256,8 @@ body.fullscreen-open {
   color: var(--bg);
 }
 #my-projects:hover .my-projects-nav-btn,
-#commercial:hover .my-projects-nav-btn {
+#commercial:hover .my-projects-nav-btn,
+#short-films:hover .my-projects-nav-btn {
   opacity: 1;
   pointer-events: auto;
 }
@@ -1269,7 +1270,13 @@ body.fullscreen-open {
 
 @media (max-width: 900px) {
   .my-projects-nav-btn {
-    display: none !important;
+    display: flex;
+    width: 40px;
+    height: 40px;
+    background: rgba(10, 10, 10, 0.6);
+    opacity: 1;
+    pointer-events: auto;
+    border-radius: 50%;
   }
 }
 
@@ -1392,15 +1399,15 @@ body.fullscreen-open {
   margin: 0;
   width: auto;
   max-width: 90vw;
-  background: linear-gradient(145deg, rgba(30, 30, 30, 0.75) 0%, rgba(10, 10, 10, 0.4) 100%);
-  backdrop-filter: blur(24px) saturate(120%);
-  -webkit-backdrop-filter: blur(24px) saturate(120%);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
-  border-left: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.02) 100%);
+  backdrop-filter: blur(30px) saturate(150%);
+  -webkit-backdrop-filter: blur(30px) saturate(150%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  border-left: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 16px;
   z-index: 10;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
   text-align: left;
 }
 
@@ -1574,7 +1581,7 @@ body.fullscreen-open {
 
   /* Mobile specific posters for My Projects */
   #my-projects .my-projects-slide:nth-child(1) .work-item.wide .poster {
-    background-image: url('./assets/images/posters/Posters%20for%20Mobile%20Preview/ambience-poster1.jpg') !important;
+    background-image: url('./assets/images/posters/Posters%20for%20Mobile%20Preview/zxambience-poster1.png') !important;
   }
   #my-projects .my-projects-slide:nth-child(2) .work-item.wide .poster {
     background-image: url('./assets/images/posters/Posters%20for%20Mobile%20Preview/Film%20Poster%20in%20Black%20and%20White%20Red%20Dark%20&%20Serious%20Style-2-2vs.PNG') !important;

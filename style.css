@@ -1569,6 +1569,26 @@ body.fullscreen-open {
     background-position: left center !important;
   }
 
+  /* Mobile specific posters for My Projects */
+  #my-projects .my-projects-slide:nth-child(1) .work-item.wide .poster {
+    background-image: url('./assets/images/posters/Posters%20for%20Mobile%20Preview/ambience-poster1.jpg') !important;
+  }
+  #my-projects .my-projects-slide:nth-child(2) .work-item.wide .poster {
+    background-image: url('./assets/images/posters/Posters%20for%20Mobile%20Preview/Film%20Poster%20in%20Black%20and%20White%20Red%20Dark%20&%20Serious%20Style-2-2vs.PNG') !important;
+  }
+  #my-projects .my-projects-slide:nth-child(3) .work-item.wide .poster {
+    background-image: url('./assets/images/posters/Posters%20for%20Mobile%20Preview/Film%20Poster%20-%20Forgotten%202vsx.PNG') !important;
+  }
+  #my-projects .my-projects-slide:nth-child(4) .work-item.wide .poster {
+    background-image: url('./assets/images/posters/Posters%20for%20Mobile%20Preview/Screenshot%202026-04-17%20at%2011.33.49%20AM%20dvz.jpg') !important;
+  }
+  #my-projects .my-projects-slide:nth-child(5) .work-item.wide .poster {
+    background-image: url('./assets/images/posters/Posters%20for%20Mobile%20Preview/Screenshot%202026-04-18%20at%207.10.37%20PMsv.jpg') !important;
+  }
+  #my-projects .my-projects-slide:nth-child(6) .work-item.wide .poster {
+    background-image: url('./assets/images/posters/Posters%20for%20Mobile%20Preview/Screenshot%202026-04-18%20at%207.17.52%20PMsdd.jpg') !important;
+  }
+
   
   .work-item.wide .item-info-static {
     position: relative;

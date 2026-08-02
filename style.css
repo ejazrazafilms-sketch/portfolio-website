@@ -914,6 +914,7 @@ body.fullscreen-open {
 /* Cinematic Image Break */
 .image-break {
   width: 100vw;
+  margin-left: calc(50% - 50vw);
   line-height: 0;
   position: relative;
   background-color: var(--bg);

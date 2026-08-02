@@ -1589,6 +1589,28 @@ body.fullscreen-open {
     background-image: url('./assets/images/posters/Posters%20for%20Mobile%20Preview/Screenshot%202026-04-18%20at%207.17.52%20PMsdd.jpg') !important;
   }
 
+  /* Mobile specific posters for Commercial Collaborations */
+  #commercial .my-projects-slide:nth-child(1) .work-item.wide .poster {
+    background-image: url('./assets/images/commercials/Poster%20for%20mobile%20preview/aScreenshot%202026-04-17%20at%201.47.09%20AM.jpg') !important;
+  }
+  #commercial .my-projects-slide:nth-child(2) .work-item.wide .poster {
+    background-image: url('./assets/images/commercials/Poster%20for%20mobile%20preview/Screenshot%202026-04-17%20at%201.48.15%20AMxz.jpg') !important;
+  }
+  #commercial .my-projects-slide:nth-child(3) .work-item.wide .poster {
+    background-image: url('./assets/images/commercials/Poster%20for%20mobile%20preview/Screenshot%202026-04-17%20at%201.49.14%20AMsc.jpg') !important;
+  }
+  #commercial .my-projects-slide:nth-child(4) .work-item.wide .poster {
+    background-image: url('./assets/images/commercials/Poster%20for%20mobile%20preview/sunsilk-hqsd.jpg') !important;
+  }
+  #commercial .my-projects-slide:nth-child(5) .work-item.wide .poster {
+    background-image: url('./assets/images/commercials/Poster%20for%20mobile%20preview/Screenshot%202026-04-17%20at%201.57.09%20AM%20copysvd.jpg') !important;
+  }
+  #commercial .my-projects-slide:nth-child(6) .work-item.wide .poster {
+    background-image: url('./assets/images/commercials/Poster%20for%20mobile%20preview/Screenshot%202026-04-17%20at%201.58.11%20AMvs.jpg') !important;
+  }
+  #commercial .my-projects-slide:nth-child(7) .work-item.wide .poster {
+    background-image: url('./assets/images/commercials/Poster%20for%20mobile%20preview/Screenshot%202026-04-17%20at%201.59.27%20AMsc.jpg') !important;
+  }
   
   .work-item.wide .item-info-static {
     position: relative;

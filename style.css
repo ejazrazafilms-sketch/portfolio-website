@@ -1271,15 +1271,26 @@ body.fullscreen-open {
 @media (max-width: 900px) {
   .my-projects-nav-btn {
     display: flex;
-    width: 40px;
-    height: 40px;
-    background: rgba(10, 10, 10, 0.6);
+    width: 36px;
+    height: 36px;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
     opacity: 1;
     pointer-events: auto;
     border-radius: 50%;
+    top: 1.5rem;
+    transform: none;
   }
-  #short-films .my-projects-nav-btn {
-    display: none !important;
+  .my-projects-nav-btn svg {
+    width: 18px;
+    height: 18px;
+  }
+  .my-projects-nav-btn.prev-btn {
+    left: auto;
+    right: calc(5vw + 44px);
+  }
+  .my-projects-nav-btn.next-btn {
+    right: 5vw;
   }
 }
 
@@ -1530,7 +1541,8 @@ body.fullscreen-open {
 
   #my-projects,
   #commercial,
-  #creative-showreel {
+  #creative-showreel,
+  #short-films {
     padding-left: 0 !important;
     padding-right: 0 !important;
   }
@@ -1669,16 +1681,43 @@ body.fullscreen-open {
     display: flex;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
-    gap: 1rem;
+    gap: 2rem;
     padding-bottom: 2rem;
     scrollbar-width: none; /* Firefox */
+    width: 100%;
   }
   #short-films .work-grid::-webkit-scrollbar {
     display: none; /* Chrome/Safari */
   }
   #short-films .work-item {
-    flex: 0 0 90vw;
+    flex: 0 0 100%;
     scroll-snap-align: center;
+    border-radius: 0;
+    padding: 0;
+    background: transparent;
+    overflow: hidden;
+  }
+  #short-films .work-item .work-content .poster {
+    aspect-ratio: 9 / 16;
+    background-size: cover !important;
+    background-position: center !important;
+  }
+  #short-films .work-item .item-info-static {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 3rem 5vw 2rem 5vw !important;
+    margin: 0;
+    width: 100%;
+    max-width: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.6) 60%, transparent 100%) !important;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border: none;
+    border-radius: 0;
+    z-index: 10;
+    box-shadow: none;
+    text-align: left;
   }
 
   /* Fix for documentary video in mobile */

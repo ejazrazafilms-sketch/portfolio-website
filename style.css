@@ -1622,26 +1622,7 @@ body.fullscreen-open {
   #commercial .my-projects-slide:nth-child(7) .work-item.wide .poster {
     background-image: url('./assets/images/commercials/Poster%20for%20mobile%20preview/Screenshot%202026-04-17%20at%201.59.27%20AMsc.jpg') !important;
   }
-  
-  .work-item.wide .item-info-static {
-    position: relative;
-    bottom: auto;
-    left: auto;
-    width: 100%;
-    max-width: 100%;
-    margin: 0;
-    padding: 2rem;
-    background: linear-gradient(to top, rgba(28, 28, 28, 0.95), transparent);
-    border: none;
-    border-radius: 0;
-    text-align: left;
-    box-shadow: none;
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
+
   
   .work-item.wide .item-info-static h3 {
     font-size: 1.5rem;

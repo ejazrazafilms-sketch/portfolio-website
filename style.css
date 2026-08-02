@@ -1278,6 +1278,9 @@ body.fullscreen-open {
     pointer-events: auto;
     border-radius: 50%;
   }
+  #short-films .my-projects-nav-btn {
+    display: none !important;
+  }
 }
 
 .work-item {

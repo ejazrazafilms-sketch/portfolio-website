@@ -1563,6 +1563,12 @@ body.fullscreen-open {
     background-position: center !important;
   }
 
+  /* Push Sisyphus (6th) and Surfers of silver linings (1st) to the left to frame properly on mobile */
+  #my-projects .my-projects-slide:nth-child(1) .work-item.wide .poster,
+  #my-projects .my-projects-slide:nth-child(6) .work-item.wide .poster {
+    background-position: left center !important;
+  }
+
   
   .work-item.wide .item-info-static {
     position: relative;

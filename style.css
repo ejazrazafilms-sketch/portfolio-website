@@ -1549,6 +1549,20 @@ body.fullscreen-open {
   .work-item.wide .image-wrapper {
     height: auto;
   }
+
+  /* Switch orientation to vertical (9:16) for My Projects and Commercial Collaborations on mobile */
+  .my-projects-slide .work-item.wide .image-wrapper,
+  #commercial .my-projects-slide .work-item.wide .image-wrapper {
+    aspect-ratio: 9 / 16;
+  }
+
+  /* Adjust the posters accordingly to cover the vertical ratio */
+  .my-projects-slide .work-item.wide .poster,
+  #commercial .my-projects-slide .work-item.wide .poster {
+    background-size: cover !important;
+    background-position: center !important;
+  }
+
   
   .work-item.wide .item-info-static {
     position: relative;

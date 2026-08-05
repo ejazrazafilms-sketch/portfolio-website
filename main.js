@@ -349,6 +349,33 @@ document.addEventListener("DOMContentLoaded", () => {
   const shortFilmsIndicators = document.querySelectorAll('.shortfilms-indicator span');
   setupSliderSync(shortFilmsSlider, shortFilmsIndicators);
 
+  (() => {
+    const slider = shortFilmsSlider;
+    if (!slider) return;
+    const prevBtn = document.querySelector('#short-films .prev-btn');
+    const nextBtn = document.querySelector('#short-films .next-btn');
+    const dots = shortFilmsIndicators;
+    if (!prevBtn || !nextBtn) return;
+
+    const updateArrows = () => {
+      const scrollPct = slider.scrollLeft / (slider.scrollWidth - slider.clientWidth);
+      const idx = Math.round(scrollPct * (dots.length - 1));
+      nextBtn.style.visibility = idx >= dots.length - 1 ? 'hidden' : 'visible';
+      prevBtn.style.visibility = idx > 0 ? 'visible' : 'hidden';
+    };
+
+    nextBtn.addEventListener('click', () => {
+      slider.scrollBy({ left: slider.clientWidth, behavior: 'smooth' });
+    });
+    prevBtn.addEventListener('click', () => {
+      slider.scrollBy({ left: -slider.clientWidth, behavior: 'smooth' });
+    });
+    slider.addEventListener('scroll', updateArrows, { passive: true });
+    window.addEventListener('resize', updateArrows);
+    setTimeout(updateArrows, 100);
+  })();
+
+
   // My Projects Slider
   const myProjectsSlider = document.querySelector('.my-projects-slider');
   const myProjectsIndicators = document.querySelectorAll('.myprojects-indicator span');

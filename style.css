@@ -1755,3 +1755,28 @@ body.fullscreen-open {
 .shortfilms-indicator {
   display: none;
 }
+@media (min-width: 901px) {
+  /* Modern styling for Short Films Grid */
+  #short-films .work-item {
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    overflow: hidden;
+  }
+
+  #short-films .work-item:hover {
+    transform: translateY(-8px);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(255,255,255,0.03);
+  }
+
+  #short-films .item-info-static {
+    background: linear-gradient(180deg, rgba(255,255,255,0.01) 0%, rgba(255,255,255,0.04) 100%);
+    border-top: 1px solid rgba(255, 255, 255, 0.03);
+    position: relative;
+    z-index: 2;
+  }
+}

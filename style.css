@@ -1704,11 +1704,12 @@ body.fullscreen-open {
   }
 
   .desktop-text {
-    display: none;
+    display: inline;
+    font-size: 0.75rem;
   }
 
   .mobile-text {
-    display: inline;
+    display: none;
   }
 
 

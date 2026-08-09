@@ -512,11 +512,7 @@ body.fullscreen-open {
   .about-pane-image {
     display: none !important;
   }
-  .panel.about {
-    background-image: linear-gradient(rgba(28, 28, 28, 0.85), rgba(28, 28, 28, 0.95)), url('./assets/images/HeadShot/18620BEC-B9FF-4801-8264-590C801910C0%202.jpg');
-    background-size: cover;
-    background-position: center top;
-  }
+
 }
 
 .about-pane h3 {
@@ -1262,27 +1258,12 @@ body.fullscreen-open {
 
 @media (max-width: 900px) {
   .my-projects-nav-btn {
-    display: flex;
-    width: 36px;
-    height: 36px;
-    background: transparent;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    opacity: 1;
-    pointer-events: auto;
-    border-radius: 50%;
-    top: 1.5rem;
-    transform: none;
+    display: none !important;
   }
-  .my-projects-nav-btn svg {
-    width: 18px;
-    height: 18px;
-  }
-  .my-projects-nav-btn.prev-btn {
-    left: auto;
-    right: calc(5vw + 44px);
-  }
-  .my-projects-nav-btn.next-btn {
-    right: 5vw;
+  .slider-indicator.myprojects-indicator,
+  .slider-indicator.commercial-indicator,
+  .slider-indicator.shortfilms-indicator {
+    margin-top: 1rem;
   }
 }
 

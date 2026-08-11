@@ -1703,9 +1703,13 @@ body.fullscreen-open {
     object-fit: contain;
   }
 
+  .break-caption {
+    padding: 2rem 5vw 0.5rem 5vw;
+  }
+
   .desktop-text {
     display: inline;
-    font-size: 0.75rem;
+    font-size: 0.55rem;
   }
 
   .mobile-text {

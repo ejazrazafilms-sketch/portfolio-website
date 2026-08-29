@@ -1708,7 +1708,7 @@ body.fullscreen-open {
   }
 
   .desktop-text {
-    display: inline;
+    display: block;
     font-size: 0.45rem;
     line-height: 0.9;
   }

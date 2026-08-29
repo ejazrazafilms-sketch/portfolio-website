@@ -1710,7 +1710,7 @@ body.fullscreen-open {
   .desktop-text {
     display: inline;
     font-size: 0.45rem;
-    line-height: 1.1;
+    line-height: 0.9;
   }
 
   .mobile-text {

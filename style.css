@@ -1700,7 +1700,7 @@ body.fullscreen-open {
   }
   
   .break-video, .break-image {
-    object-fit: contain;
+    object-fit: cover;
   }
 
   .break-caption {

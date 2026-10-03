@@ -530,9 +530,9 @@ document.addEventListener("DOMContentLoaded", () => {
         if (loader) {
           // Update loader text based on destination
           if (loaderText) {
-            if (href.includes('commercial')) loaderText.innerHTML = '<img src="./assets/images/Logo/Ejaz%20logo.png" alt="EJAZ Logo" style="height: 100px; width: auto;">';
-            else if (href.includes('work')) loaderText.innerHTML = '<img src="./assets/images/Logo/Ejaz%20logo.png" alt="EJAZ Logo" style="height: 100px; width: auto;">';
-            else loaderText.innerHTML = '<img src="./assets/images/Logo/Ejaz%20logo.png" alt="EJAZ Logo" style="height: 100px; width: auto;">';
+            if (href.includes('commercial')) loaderText.innerHTML = '<img src="./assets/images/Logo/Ejaz-logo.png" alt="EJAZ Logo" style="height: 100px; width: auto;">';
+            else if (href.includes('work')) loaderText.innerHTML = '<img src="./assets/images/Logo/Ejaz-logo.png" alt="EJAZ Logo" style="height: 100px; width: auto;">';
+            else loaderText.innerHTML = '<img src="./assets/images/Logo/Ejaz-logo.png" alt="EJAZ Logo" style="height: 100px; width: auto;">';
           }
 
           loader.style.display = 'flex';

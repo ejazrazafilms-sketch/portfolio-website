@@ -1567,13 +1567,13 @@ body.fullscreen-open {
 
   /* Mobile specific posters for My Projects */
   #my-projects .my-projects-slide:nth-child(1) .work-item.wide .poster {
-    background-image: url('./assets/images/posters/Posters%20for%20Mobile%20Preview/zxambience-poster1.png') !important;
+    background-image: url('./assets/images/posters/Posters%20for%20Mobile%20Preview/zxambience-poster1.jpg') !important;
   }
   #my-projects .my-projects-slide:nth-child(2) .work-item.wide .poster {
-    background-image: url('./assets/images/posters/Posters%20for%20Mobile%20Preview/Film%20Poster%20in%20Black%20and%20White%20Red%20Dark%20%26%20Serious%20Style-2-2vs.PNG') !important;
+    background-image: url('./assets/images/posters/Posters%20for%20Mobile%20Preview/Film-Poster-in-Black-and-White-Red-Dark-Serious-Style-2-2vs.jpg') !important;
   }
   #my-projects .my-projects-slide:nth-child(3) .work-item.wide .poster {
-    background-image: url('./assets/images/posters/Posters%20for%20Mobile%20Preview/Film%20Poster%20-%20Forgotten%202vsx.PNG') !important;
+    background-image: url('./assets/images/posters/Posters%20for%20Mobile%20Preview/Film-Poster-Forgotten-2vsx.jpg') !important;
   }
   #my-projects .my-projects-slide:nth-child(4) .work-item.wide .poster {
     background-image: url('./assets/images/posters/Posters%20for%20Mobile%20Preview/Screenshot-2026-04-17-at-11.33.49-AM-dvz.jpg') !important;
